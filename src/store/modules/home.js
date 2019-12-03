@@ -1,12 +1,26 @@
 import {getMasterBrandList} from '@/services/index'
 
 const state = {
-    list: []
+    listAll: [],
+    listNewArr:[],
+    listRight:[], //传递值时的中间桥梁
+    listRights:[]
 }
 
 const mutations = {
     updateList(state, payload){
-        state.list = payload;
+        state.listAll = payload;
+        state.listAll.map(item=>{
+            let arr=item.Spelling[0]
+            // state.listRight=item.Spelling[0]
+            let arrs=state.listAll.filter(item=>item.Spelling[0]==arr)
+            if(state.listNewArr.findIndex(item=>item.arr==arr)==-1){
+                state.listNewArr.push({arr,arrs})
+            }
+            state.listRight.push(arr)
+        })
+        state.listRights=Array.from(new Set(state.listRight))
+        console.log(state.listRights)
     }
 }
 
