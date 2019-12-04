@@ -35,8 +35,9 @@ const actions = {
         commit('updateList', res.data);
     },
     async getHandleList({commit},payload){
+        // console.log(payload)
         let res = await getHandleList(payload);
-        console.log(res)
+        // console.log(res)
         commit('leftList',res.data)
     }
 }
