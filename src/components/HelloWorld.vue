@@ -1,57 +1,65 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+      <div class="list" v-for="(item,index) in leftArr" :key="index">
+        <p class="title">{{item.GroupName}}</p>
+          <ul>
+              <li v-for="(ite,ind) in item.GroupList" :key="ind">
+                <img :src="ite.Picture"/>
+                <div class="detail">
+                  <p class="name">{{ite.AliasName}}</p>
+                  <p class="price">{{ite.DealerPrice}}</p>
+                </div>
+              </li>
+          </ul>
+      </div>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  computed:{
+    ...mapState({
+      leftArr:state=>state.home.leftArr
+    })
+  },
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+.title{
+  margin-left: 1px;
+  font-size: .28rem;
+  line-height: .48rem;
+  background: #f2f2f2;
+  padding-left: .3rem;
+  color: #717171;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.detail{
+  .name{
+    font-size: .34rem;
+    color: #5f687a;
+  }
+  .price{
+    margin-top: .1rem;
+    font-size: .28rem;
+    color: red;
+  }
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+li{
+  display: flex;
+  height: 1.4rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  margin-left: .1rem;
 }
-a {
-  color: #42b983;
+img{
+    margin: 0 .1rem 0 .2rem;
+    width: 1.8rem;
+    height: 1.2rem;
 }
 </style>
