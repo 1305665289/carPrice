@@ -14,6 +14,13 @@
         <span>{{detailLists.BottomEntranceTitle}}</span>
       </div>
 
+      <div class="bottom">
+          <ol>
+            <li>{{allYear}}</li>
+            <li>{{detailYear}}</li>
+          </ol>
+      </div>
+
     </div>
     <div class="footer">
       <p class="one">{{detailLists.BottomEntranceTitle}}</p>
@@ -28,7 +35,10 @@ import {mapActions, mapState,mapMutations} from 'vuex'
 export default {
   computed: {
     ...mapState({
-        detailLists:state=>state.detail.detailLists
+        detailLists:state=>state.detail.detailLists,
+        detailYear:state=>state.detail.detailYear,
+        allYear:state=>state.detail.allYear,
+        allYearList:state=>state.detail.allYearList
     })
   },
   methods: {
@@ -49,25 +59,28 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 .main{
   flex: 1;
   overflow: auto;
-  img{
+  position: relative;
+  .image{
+    position: relative;
+    img{
     width: 100%;
     transform: translateY(-17%);
-  }
-  .num{
-      position: absolute;
-      top: 22%;
-      left:80%;
-      padding: .05rem;
-      background: rgba($color: #000000, $alpha: .5);
-      color: #fff;
-      border-radius: .05rem;
-      font-size: .24rem
     }
+    .num{
+        position: absolute;
+        top: 55%;
+        left:77%;
+        padding: .05rem;
+        background: rgba($color: #000000, $alpha: .5);
+        color: #fff;
+        border-radius: .05rem;
+        font-size: .24rem
+      }
+  }
   .middle{
     height: 1.48rem;
     width: 100%;
@@ -100,7 +113,19 @@ export default {
       margin-left: .1rem;
     }
   }
-  
+}
+.bottom{
+  background: #cccccc;
+  ol{
+    border-top: .15rem solid #f4f4f4;
+    background: #fff;
+    display: flex;
+    li{
+      height: .92rem;
+      background: #fff;
+      padding: .3rem;
+    }
+  }
 }
 .footer{
   background: #3aacff;
