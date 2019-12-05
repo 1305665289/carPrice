@@ -1,38 +1,70 @@
 <template>
   <div class="home">
-          <div v-for="(item,index) in lis" :key="index">
+          <div v-for="(item,index) in lis" :key="index" class="box">
              <p class="tit">{{item.letter}}</p>
-                 <ul v-for="(item,index) in item.arr" :key="index">
-                   <li><img :src="item.CoverPhoto" alt=""></li>
-                   <li><span>{{item.Name}}</span> </li>
+                 <ul class="ull">
+                   <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
+                        <img v-lazy="item.CoverPhoto" alt="">
+                        <span>{{item.Name}}</span>  
+                   </li>
                  </ul>
           </div>
+          <!-- <div class="rig">
+            <ul >
+              <li  v-for="(item,index) in lis" :key="index">
+                   {{item.letter}}
+              </li>
+            </ul>
+          </div> -->
+          <Rleft class="rl">
+
+          </Rleft>
+          <NavList :arr="arr" @Parent_jump="jumps"></NavList>
   </div>
 </template>
-
 <script>
 import {mapActions, mapState} from 'vuex'
-
+import Rleft from '../components/Rleft'
+import NavList from "@/components/nav_list/";
+import { black } from 'color-name';
 export default {
   name: 'home',
   components: {
-          
+      Rleft,
+      NavList
   },
   computed: {
     ...mapState({
       list: state=>state.home.list,
       lis: state=>state.home.lis,
+      arr:state=>state.home.arr,
+      right:state=> state.home.right
     })
   },
   methods: {
     ...mapActions({
-      getMasterBrandList: 'home/getMasterBrandList'
-    })
+      getMasterBrandList: 'home/getMasterBrandList',
+      getMasterRightList: 'home/getMasterRightList'
+    }),
+    rleft(MasterID){
+       this.getMasterRightList(MasterID)
+      if(document.querySelector('.lii')){
+         document.querySelector('.rl').style='display:block'
+      }
+    },
+    jumps(item) {
+      console.log(item);
+      this.idScroll = item;
+      document.querySelector(".list-page").scrollTop = document.querySelector(
+        `#${item}`
+      ).offsetTop;
+    }
   },
   created() {
     // 获取首页的数据 
-    console.log('$store...', this.$store);
+    // console.log('$store...', this.$store);
     this.getMasterBrandList();
+    this.getMasterRightList()
   }
 }
 </script>
@@ -44,22 +76,41 @@ export default {
     box-sizing: border-box;
     text-decoration: none
   }
-   ul{
+  .home{
+    width: 100%;
+  }
+  .box {
+    width: 100%;
+  }
+  .ull{
+    width: 6.9rem;
+    text-align: center;
+  
+  }
+   .lii{
       width: 100%;
-      height: 50px;
+      height: 1rem;
       display: flex;
+      margin-left: 15px;
       border-bottom: 1px solid #ddd;
    }
-  li img{
+   .nav_list{
+     width:0.40rem ;
+     font-size: 12px;
+     color: #666666;   
+     position: fixed;
+     top: 25%;
+     right: 0px;
+   }
+    img{
      width: .8rem;
      height: .8rem;
      margin-top: 5px
    }
-   li span{
+   span {
     font-size: .32rem;
     margin-left: .4rem;
-    line-height: 50px;
-    
+    line-height: 1rem;
    }
    .tit{
       font-size: .28rem;
@@ -67,5 +118,14 @@ export default {
       background: #f4f4f4;
       padding-left: .3rem;
       color: #aaa;
+   }
+   .rl{
+     width:5.6rem ;
+     height: 100%;
+     background: white;
+     position: fixed;
+     right: 0;
+     top: 0;
+     display: none
    }
 </style>

@@ -4,3 +4,7 @@ import request from '@/utils/request';
 export let getMasterBrandList = ()=>{
     return request('/v2-car-getMasterBrandList.html')
 }
+//获取车系数据
+export let getMasterRightList = (MasterID)=>{
+    return request('/v2-car-getMakeListByMasterBrandId.html',{params:{MasterID}})
+}
