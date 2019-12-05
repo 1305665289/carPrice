@@ -11,3 +11,10 @@ export let getMasterRightList = (MasterID)=>{
 export let getDetailList = (SerialID)=>{
     return request('/v2-car-getInfoAndListById.html',{params:{SerialID}})
 }
+// export let getDetailList = ()=>{
+//     return request('/v2-car-getImageList.html',{params:{SerialID:2359}})
+// }
+// export let getDetailList = ()=>{
+//     return request('/v2-car-getImageList.html',{params:{ColorID:2359}})
+// }
+
