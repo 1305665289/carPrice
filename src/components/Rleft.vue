@@ -25,6 +25,7 @@ export default {
   },
   methods:{
     detail(SerialID){
+        console.log(SerialID)
         this.$router.push({
            path:'/about',
            query:{SerialID:SerialID}

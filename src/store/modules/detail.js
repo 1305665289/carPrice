@@ -7,6 +7,7 @@ const state = {
     allYear: '全部',    // 当前选择年份 与筛选/排序时命名应用
     allYearList:[],
     
+    years:[]
 }
 
 // 给车款排序
@@ -61,36 +62,51 @@ const mutations = {
 
         //获取年份
         let year=payload.data.list.map(item=>item.market_attribute.year);
-        console.log(year);
+        // console.log(year);
         state.detailYear=Array.from(new Set(year));
         state.detailYear=state.detailYear.join(''); //对象转成字符串渲染
+
+
+        let allYear1=[];
+        let detailYear1=[];
+        allYear1=state.allYear;
+        detailYear1=state.detailYear
+        console.log(typeof detailYear1);
+        console.log(detailYear1)
+        
+
+
+        // console.log(detailYear1.split(3,','))
+        state.years.push(allYear1,detailYear1)
+        console.log(state.years)
 
         //获取当前选择的年份
         let allYearList=[];
         if(state.allYear=='全部'){
             allYearList=payload.data.list
-            console.log(allYearList)
+            // console.log(allYearList)
         }else{
             allYearList=payload.data.list.filter(item=>item.market_attribute.year==state.allYearList)
-            console.log(allYearList)
+            // console.log(allYearList)
         }
 
         //对当前年份的数据进行排序
         allYearList = sortCarList(allYearList);
-        console.log(allYearList)
+        // console.log(allYearList)
 
         // 聚合key相同的车款数据
         allYearList = formatCarList(allYearList);
         state.allYearList = allYearList;
-        console.log('allYearList...', allYearList);
-
+        // console.log('allYearList...', allYearList);
+ 
     }
 }
 
 const actions = {
     async getDetailList({commit}, payload){
+        // console.log(payload)
         let res = await getDetailList(payload);
-        console.log('res...', res);
+        // console.log('res...', res);
         commit('detailList', res);
     }
 }

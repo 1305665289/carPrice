@@ -4,12 +4,16 @@ import creareLogger from 'vuex/dist/logger';
 
 // 引入子模块
 import detail from './modules/detail'
+import home from './modules/home'
+import pic from './modules/pic'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    detail
+    detail,
+    home,
+    pic
   },
   plugins: [creareLogger()]
 })

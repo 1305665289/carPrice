@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
           <div v-for="(item,index) in lis" :key="index" class="box">
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
@@ -14,13 +13,10 @@
 
           </Rleft>
           <NavList :arr="arr" @Parent_jump="jumps"></NavList>
-=======
       
->>>>>>> szw
   </div>
 </template>
 <script>
-<<<<<<< HEAD
 import {mapActions, mapState} from 'vuex'
 import Rleft from '../components/Rleft'
 import NavList from "@/components/nav_list/";
@@ -66,7 +62,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scrped>
+<style lang="scss" scoped>
   *{
     margin: 0px;
     padding: 0;
@@ -126,11 +122,6 @@ export default {
      top: 0;
      display: none
    }
-=======
 
-</script>
 
-<style lang="scss" scoped>
-
->>>>>>> szw
 </style>

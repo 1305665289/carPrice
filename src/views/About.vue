@@ -1,62 +1,48 @@
 <template>
-<<<<<<< HEAD
-     <div class="about">
-
-     </div>
-</template>
-
-<script>
-export default {
- 
-}
-</script>
-
-<style>
-
-=======
-  <div class="home">
-    <div class="main">
-      <div class="image">
-        <img :src="detailLists.CoverPhoto" alt="">
-        <p class="num">{{detailLists.pic_group_count}}张照片</p>
-      </div>
-
-      <div class="middle">
-        <ul class="title" v-if="Object.keys(detailLists).length">
-          <li class="one">{{detailLists.market_attribute.dealer_price}}</li>
-          <li class="two">指导价 {{detailLists.market_attribute.official_refer_price}}</li>
-        </ul>
-        <span>{{detailLists.BottomEntranceTitle}}</span>
-      </div>
-
-      <div class="bottom">
-          <ol class="titleOl">
-            <li >{{allYear}}</li>
-            <li >{{detailYear}}</li>
-          </ol>
-
-          <!-- 需要切换的页面渲染 -->
-          <div class="conOl" v-for="(item,index) in allYearList" :key="index">
-              <p class="p1">{{item.key}}</p>
-              <ul class="conUl" v-for="(ite,ind) in item.list" :key="ind">
-                  <li>
-                    <p class="lip1">{{ite.market_attribute.year}}款 {{ite.car_name}}</p>
-                    <p class="lip2">{{ite.horse_power}}马力{{ite.gear_num}}档{{ite.trans_type}}</p>
-                    <p class="lip3">
-                      <span>指导价 {{ite.market_attribute.official_refer_price}}</span>
-                      <span>{{ite.market_attribute.dealer_price_min}}</span>
-                    </p>
-                  </li>
-                  <button>{{detailLists.BottomEntranceTitle}}</button>
-              </ul>
+     <div class="home">
+        <div class="main">
+          <div class="image" @click="handleImg(detailLists.SerialID)">
+            <img :src="detailLists.CoverPhoto" alt="">
+            <p class="num">{{detailLists.pic_group_count}}张照片</p>
           </div>
-      </div>
 
-    </div>
-    <div class="footer">
-      <p class="one">{{detailLists.BottomEntranceTitle}}</p>
-      <p class="two">本地经销商为你报价</p>
-    </div>
+          <div class="middle">
+            <ul class="title" v-if="Object.keys(detailLists).length">
+              <li class="one">{{detailLists.market_attribute.dealer_price}}</li>
+              <li class="two">指导价 {{detailLists.market_attribute.official_refer_price}}</li>
+            </ul>
+            <span>{{detailLists.BottomEntranceTitle}}</span>
+          </div>
+
+          <div class="bottom">
+              <ol class="titleOl" > 
+                <span v-for="(item,index) in years" :key="index" @click="handle(index)" :class="{active:index==curIndex}">
+                  {{item}}
+                </span>
+              </ol>
+
+              <div class="conOl" v-for="(item,index) in allYearList" :key="index">
+                  <p class="p1">{{item.key}}</p>
+                  <ul class="conUl" v-for="(ite,ind) in item.list" :key="ind">
+                      <li>
+                        <p class="lip1">{{ite.market_attribute.year}}款 {{ite.car_name}}</p>
+                        <p class="lip2">{{ite.horse_power}}马力{{ite.gear_num}}档{{ite.trans_type}}</p>
+                        <p class="lip3">
+                          <span>指导价 {{ite.market_attribute.official_refer_price}}</span>
+                          <span>{{ite.market_attribute.dealer_price_min}}</span>
+                        </p>
+                      </li>
+                      <button>{{detailLists.BottomEntranceTitle}}</button>
+                  </ul>
+              </div>
+          </div>
+
+        </div>
+        <div class="footer">
+          <p class="one">{{detailLists.BottomEntranceTitle}}</p>
+          <p class="two">本地经销商为你报价</p>
+        </div>
+
   </div>
 </template>
 
@@ -64,30 +50,48 @@ export default {
 import {mapActions, mapState,mapMutations} from 'vuex'
 
 export default {
+  data(){
+    return {
+      curIndex:0
+    }
+  },
   computed: {
     ...mapState({
         detailLists:state=>state.detail.detailLists,
         detailYear:state=>state.detail.detailYear,
         allYear:state=>state.detail.allYear,
-        allYearList:state=>state.detail.allYearList
+        allYearList:state=>state.detail.allYearList,
+        years:state=>state.detail.years
     })
   },
   methods: {
     ...mapActions({
       getDetailList: 'detail/getDetailList',
     }),
-    hand(){
-      console.log('1')
+    handleImg(SerialID){
+      console.log(SerialID)
+      this.$router.push({
+        path:'/picture',
+        qurey:{SerialID:SerialID}
+      })
+    },
+    handle(index){
+      console.log(index)
+      this.curIndex=index
     }
   },
   created() {
-    // 获取详情页页的数据 
-    this.getDetailList();
+    // 获取详情页页的数据 拿到首页传递的=》ID
+    this.getDetailList(this.$route.query.SerialID);
   }
 }
 </script>
 
+
 <style lang="scss" scoped>
+.home .main .bottom .titleOl .active {
+  color: #00afff
+}
 .home{
   width: 100%;
   height: 100%;
@@ -159,7 +163,7 @@ export default {
     height: .77rem;
     li{
       background: #fff;
-      margin: .3rem;
+      padding: .3rem;
     }
   }
   .conUl{
@@ -225,5 +229,4 @@ export default {
     margin-left: .15rem;
   }
 }
->>>>>>> szw
 </style>

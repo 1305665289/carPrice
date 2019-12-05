@@ -1,6 +1,5 @@
 import request from '@/utils/request';
 
-<<<<<<< HEAD
 // 获取首页品牌列表
 export let getMasterBrandList = ()=>{
     return request('/v2-car-getMasterBrandList.html')
@@ -9,12 +8,13 @@ export let getMasterBrandList = ()=>{
 export let getMasterRightList = (MasterID)=>{
     return request('/v2-car-getMakeListByMasterBrandId.html',{params:{MasterID}})
 }
+
+//详情页
 export let getDetailList = (SerialID)=>{
     return request('/v2-car-getInfoAndListById.html',{params:{SerialID}})
-=======
+}
 
-//获取详情页数据
-export let getDetailList=()=>{
-    return request('/v2-car-getInfoAndListById.html',{params:{SerialID:2593}})
->>>>>>> szw
+//图片页
+export let getPiclList = (SerialID)=>{
+    return request('/v2-car-getImageList.html',{params:{SerialID}})
 }
