@@ -5,7 +5,6 @@
         <img :src="detailLists.CoverPhoto" alt="">
         <p class="num">{{detailLists.pic_group_count}}张照片</p>
       </div>
-
       <div class="middle">
         <ul class="title" v-if="Object.keys(detailLists).length">
           <li class="one">{{detailLists.market_attribute.dealer_price}}</li>
@@ -13,7 +12,6 @@
         </ul>
         <span>{{detailLists.BottomEntranceTitle}}</span>
       </div>
-
       <div class="bottom">
           <ol class="titleOl">
             <li >{{allYear}}</li>
@@ -42,6 +40,7 @@
       <p class="one">{{detailLists.BottomEntranceTitle}}</p>
       <p class="two">本地经销商为你报价</p>
     </div>
+    
   </div>
 
 </template>
@@ -50,6 +49,7 @@
 import {mapActions, mapState} from 'vuex'
 export default {
    computed: {
+
     ...mapState({
         detailLists:state=>state.detail.detailLists,
         detailYear:state=>state.detail.detailYear,
@@ -64,7 +64,7 @@ export default {
   },
   created() {
     // 获取详情页页的数据 
-    this.getDetailList();
+    this.getDetailList(this.$route.query.SerialID);
   }
 }
 </script>

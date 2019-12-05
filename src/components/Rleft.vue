@@ -25,10 +25,12 @@ export default {
   },
   methods:{
     detail(SerialID){
-        this.$router.push({
+        console.log(SerialID)
+          this.$router.push({
            path:'/about',
            query:{SerialID:SerialID}
       })
+      
      }
    }
 }

@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-          <div v-for="(item,index) in lis" :key="index" class="box">
+          <div v-for="(item,index) in lis" :id='item.letter'  :key="index" class="box">
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
                    <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
                         <img v-lazy="item.CoverPhoto" alt="">
-                        <span>{{item.Name}}</span>  
+                        <span>{{item.Name}}</span>   
                    </li>
-                 </ul>
+                 </ul> 
+                  
           </div>
+          <ul class="right">
+            <li v-for="(item,index) in lis" :key="index">
+               <p @click='fun(item.letter)'>
+                 {{item.letter}}
+               </p> 
+            </li>
+          </ul>
           <Rleft class="rl">
 
           </Rleft>
-
   </div>
 </template>
 <script>
@@ -42,7 +49,11 @@ export default {
       if(document.querySelector('.lii')){
          document.querySelector('.rl').style='display:block'
       }
-    }
+    },
+     fun(item){
+       console.log(item)
+          document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+      }
   },
   created() {
     // 获取首页的数据 
@@ -52,7 +63,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scrped>
+<style lang="scss" scoped>
   *{
     margin: 0px;
     padding: 0;
@@ -62,6 +73,7 @@ export default {
   }
   .home{
     width: 100%;
+    overflow-y: scroll;
   }
   .box {
     width: 100%;
@@ -71,6 +83,18 @@ export default {
     text-align: center;
   
   }
+  .right{
+  position: fixed;
+  // display: flex;
+  // flex-direction: column;
+  right: 0px;
+  top: 120px;
+  p{
+    line-height: 20px;
+    font-size: 12px;
+    color: #666666;
+  }
+ }
    .lii{
       width: 100%;
       height: 1rem;
