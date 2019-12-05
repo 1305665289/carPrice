@@ -6,6 +6,7 @@ const state = {
 
     allYear: '全部',    // 当前选择年份 与筛选/排序时命名应用
     allYearList:[],
+    
 }
 
 // 给车款排序

@@ -7,7 +7,7 @@
       </div>
 
       <div class="middle">
-        <ul class="title">
+        <ul class="title" v-if="Object.keys(detailLists).length">
           <li class="one">{{detailLists.market_attribute.dealer_price}}</li>
           <li class="two">指导价 {{detailLists.market_attribute.official_refer_price}}</li>
         </ul>
@@ -15,10 +15,26 @@
       </div>
 
       <div class="bottom">
-          <ol>
-            <li>{{allYear}}</li>
-            <li>{{detailYear}}</li>
+          <ol class="titleOl">
+            <li >{{allYear}}</li>
+            <li >{{detailYear}}</li>
           </ol>
+
+          <!-- 需要切换的页面渲染 -->
+          <div class="conOl" v-for="(item,index) in allYearList" :key="index">
+              <p class="p1">{{item.key}}</p>
+              <ul class="conUl" v-for="(ite,ind) in item.list" :key="ind">
+                  <li>
+                    <p class="lip1">{{ite.market_attribute.year}}款 {{ite.car_name}}</p>
+                    <p class="lip2">{{ite.horse_power}}马力{{ite.gear_num}}档{{ite.trans_type}}</p>
+                    <p class="lip3">
+                      <span>指导价 {{ite.market_attribute.official_refer_price}}</span>
+                      <span>{{ite.market_attribute.dealer_price_min}}</span>
+                    </p>
+                  </li>
+                  <button>{{detailLists.BottomEntranceTitle}}</button>
+              </ul>
+          </div>
       </div>
 
     </div>
@@ -44,7 +60,10 @@ export default {
   methods: {
     ...mapActions({
       getDetailList: 'detail/getDetailList',
-    })
+    }),
+    hand(){
+      console.log('1')
+    }
   },
   created() {
     // 获取详情页页的数据 
@@ -96,8 +115,9 @@ export default {
         font-size: .36rem;
       }
       .two{
-        color: skyblue;
+        color: #bdbdbd;
         font-size: .2rem;
+        margin-top: .1rem
       }
     }
     span{
@@ -109,22 +129,66 @@ export default {
       border-radius: .2rem;
       line-height: .7rem;
       text-align: center;
-      margin-top: .4rem;
+      margin-top: .5rem;
       margin-left: .1rem;
     }
   }
 }
 .bottom{
   background: #cccccc;
-  ol{
+  .titleOl{
     border-top: .15rem solid #f4f4f4;
     background: #fff;
     display: flex;
+    font-size: .32rem;
+    height: .77rem;
     li{
-      height: .92rem;
       background: #fff;
-      padding: .3rem;
+      margin: .3rem;
     }
+  }
+  .conUl{
+    height: 2.38rem;
+    background: #fff;
+    border-top: 3px solid #f4f4f4
+  }
+  .lip1{
+    padding: .26rem 0 .18rem;
+    padding-left: .2rem;
+    font-size: .3rem;
+    line-height: 1;
+    color: #3d3d3d;
+  }
+  .lip2{
+    color: #bdbdbd;
+    font-size: .26rem;
+    padding-left: .2rem;
+  }
+  .lip3{
+    text-align: right;
+    padding-bottom: .1rem;
+    font-size: .24rem;
+    color: #818181;
+    padding-right: .2rem;
+  }
+  button{
+    border: none;
+    border-top: 1px solid #eee;
+    width: 100%;
+    height: .4rem;
+    font-size: .32rem;
+    color: #00afff;
+    background: #fff;
+    font-weight: 500;
+    margin-top: .2rem;
+    padding-top: .2rem
+  }
+  .p1{
+      background: #f4f4f4;
+      line-height: .5rem;
+      padding-left: .2rem;
+      font-size: .3rem;
+      color: #3d3d3d;
   }
 }
 .footer{
