@@ -9,13 +9,6 @@
                    </li>
                  </ul>
           </div>
-          <!-- <div class="rig">
-            <ul >
-              <li  v-for="(item,index) in lis" :key="index">
-                   {{item.letter}}
-              </li>
-            </ul>
-          </div> -->
           <Rleft class="rl">
 
           </Rleft>
@@ -26,7 +19,7 @@
 import {mapActions, mapState} from 'vuex'
 import Rleft from '../components/Rleft'
 import NavList from "@/components/nav_list/";
-import { black } from 'color-name';
+import { black } from 'color-name';   
 export default {
   name: 'home',
   components: {

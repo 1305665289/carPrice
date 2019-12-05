@@ -25,9 +25,12 @@ export default {
   },
   methods:{
     detail(SerialID){
-        alert('111')
-    }
-  }
+        this.$router.push({
+           path:'/about',
+           query:{SerialID:SerialID}
+      })
+     }
+   }
 }
 </script>
 

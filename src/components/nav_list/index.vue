@@ -59,7 +59,6 @@ export default {
   position: fixed;
   top:50%;
   transform: translateY(-50%);
-  right: 5%;
 }
 .nav_item {
   text-align: center;
