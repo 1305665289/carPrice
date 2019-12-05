@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
           <div v-for="(item,index) in lis" :key="index" class="box">
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
@@ -13,35 +12,29 @@
           <Rleft class="rl">
 
           </Rleft>
-          <NavList :arr="arr" @Parent_jump="jumps"></NavList>
-=======
-      
->>>>>>> szw
+
   </div>
 </template>
 <script>
-<<<<<<< HEAD
 import {mapActions, mapState} from 'vuex'
 import Rleft from '../components/Rleft'
-import NavList from "@/components/nav_list/";
+
 import { black } from 'color-name';   
 export default {
   name: 'home',
   components: {
       Rleft,
-      NavList
   },
   computed: {
     ...mapState({
       list: state=>state.home.list,
       lis: state=>state.home.lis,
-      arr:state=>state.home.arr,
       right:state=> state.home.right
     })
   },
   methods: {
     ...mapActions({
-      getMasterBrandList: 'home/getMasterBrandList',
+      getMasterBrandList:'home/getMasterBrandList',
       getMasterRightList: 'home/getMasterRightList'
     }),
     rleft(MasterID){
@@ -49,13 +42,6 @@ export default {
       if(document.querySelector('.lii')){
          document.querySelector('.rl').style='display:block'
       }
-    },
-    jumps(item) {
-      console.log(item);
-      this.idScroll = item;
-      document.querySelector(".list-page").scrollTop = document.querySelector(
-        `#${item}`
-      ).offsetTop;
     }
   },
   created() {
@@ -92,14 +78,6 @@ export default {
       margin-left: 15px;
       border-bottom: 1px solid #ddd;
    }
-   .nav_list{
-     width:0.40rem ;
-     font-size: 12px;
-     color: #666666;   
-     position: fixed;
-     top: 25%;
-     right: 0px;
-   }
     img{
      width: .8rem;
      height: .8rem;
@@ -126,11 +104,4 @@ export default {
      top: 0;
      display: none
    }
-=======
-
-</script>
-
-<style lang="scss" scoped>
-
->>>>>>> szw
 </style>

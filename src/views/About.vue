@@ -1,19 +1,4 @@
 <template>
-<<<<<<< HEAD
-     <div class="about">
-
-     </div>
-</template>
-
-<script>
-export default {
- 
-}
-</script>
-
-<style>
-
-=======
   <div class="home">
     <div class="main">
       <div class="image">
@@ -35,7 +20,7 @@ export default {
             <li >{{detailYear}}</li>
           </ol>
 
-          <!-- 需要切换的页面渲染 -->
+    
           <div class="conOl" v-for="(item,index) in allYearList" :key="index">
               <p class="p1">{{item.key}}</p>
               <ul class="conUl" v-for="(ite,ind) in item.list" :key="ind">
@@ -53,18 +38,18 @@ export default {
       </div>
 
     </div>
-    <div class="footer">
+   <div class="footer">
       <p class="one">{{detailLists.BottomEntranceTitle}}</p>
       <p class="two">本地经销商为你报价</p>
     </div>
   </div>
+
 </template>
 
 <script>
-import {mapActions, mapState,mapMutations} from 'vuex'
-
+import {mapActions, mapState} from 'vuex'
 export default {
-  computed: {
+   computed: {
     ...mapState({
         detailLists:state=>state.detail.detailLists,
         detailYear:state=>state.detail.detailYear,
@@ -75,10 +60,7 @@ export default {
   methods: {
     ...mapActions({
       getDetailList: 'detail/getDetailList',
-    }),
-    hand(){
-      console.log('1')
-    }
+    })
   },
   created() {
     // 获取详情页页的数据 
@@ -225,5 +207,4 @@ export default {
     margin-left: .15rem;
   }
 }
->>>>>>> szw
 </style>

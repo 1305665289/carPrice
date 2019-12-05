@@ -1,14 +1,10 @@
 import {getDetailList} from '@/services/index'
-
 const state = {
     detailLists:[],
     detailYear:[], //年份
-
     allYear: '全部',    // 当前选择年份 与筛选/排序时命名应用
-    allYearList:[],
-    
+    allYearList:[],   
 }
-
 // 给车款排序
 function sortCarList(list){
     // 排序规则 排量升序 && 功率升序 && 自然吸气>涡轮增压
