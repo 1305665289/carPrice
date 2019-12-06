@@ -11,14 +11,17 @@
               <li class="one">{{detailLists.market_attribute.dealer_price}}</li>
               <li class="two">指导价 {{detailLists.market_attribute.official_refer_price}}</li>
             </ul>
-            <span>{{detailLists.BottomEntranceTitle}}</span>
+            <span @click="price(detailLists.SerialID)">{{detailLists.BottomEntranceTitle}}</span>
           </div>
 
           <div class="bottom">
+
+              <!-- 全部年份 -->
               <ol class="titleOl" > 
-                <span v-for="(item,index) in years" :key="index" @click="handle(index)" :class="{active:index==curIndex}">
-                  {{item}}
-                </span>
+                <li class="active" ref="actives" @click="handleQ">{{allYear}}</li>
+                <li v-for="(item,index) in detailYear" :key="index" @click="handle(index)" :class="{active:index==curIndex}">
+                  <span>{{item}}</span>
+                </li>
               </ol>
 
               <div class="conOl" v-for="(item,index) in allYearList" :key="index">
@@ -27,18 +30,18 @@
                       <li>
                         <p class="lip1">{{ite.market_attribute.year}}款 {{ite.car_name}}</p>
                         <p class="lip2">{{ite.horse_power}}马力{{ite.gear_num}}档{{ite.trans_type}}</p>
-                        <p class="lip3">
+                        <p class="lip3" @click="price(detailLists.SerialID)">
                           <span>指导价 {{ite.market_attribute.official_refer_price}}</span>
                           <span>{{ite.market_attribute.dealer_price_min}}</span>
                         </p>
                       </li>
-                      <button>{{detailLists.BottomEntranceTitle}}</button>
+                      <button @click="price(detailLists.SerialID)">{{detailLists.BottomEntranceTitle}}</button>
                   </ul>
               </div>
           </div>
 
         </div>
-        <div class="footer">
+        <div class="footer" @click="price(detailLists.SerialID)">
           <p class="one">{{detailLists.BottomEntranceTitle}}</p>
           <p class="two">本地经销商为你报价</p>
         </div>
@@ -52,7 +55,7 @@ import {mapActions, mapState,mapMutations} from 'vuex'
 export default {
   data(){
     return {
-      curIndex:0
+      curIndex:-1
     }
   },
   computed: {
@@ -61,7 +64,7 @@ export default {
         detailYear:state=>state.detail.detailYear,
         allYear:state=>state.detail.allYear,
         allYearList:state=>state.detail.allYearList,
-        years:state=>state.detail.years
+        // years:state=>state.detail.years
     })
   },
   methods: {
@@ -69,7 +72,7 @@ export default {
       getDetailList: 'detail/getDetailList',
     }),
     handleImg(SerialID){
-      console.log(SerialID)
+      // console.log(SerialID)
       this.$router.push({
         path:'/picture',
         query:{SerialID:SerialID}
@@ -77,6 +80,19 @@ export default {
     },
     handle(index){
       this.curIndex=index
+      console.log(this.$refs.actives)
+      this.$refs.actives.className=''
+    },
+    handleQ(){
+      this.curIndex=-1
+      this.$refs.actives.className='active'
+    },
+    price(SerialID){
+      // console.log(SerialID)
+      this.$router.push({
+        path:'/carlei',
+        query:{SerialID:SerialID}
+      })
     }
   },
   created() {
@@ -162,7 +178,7 @@ export default {
     height: .77rem;
     li{
       background: #fff;
-      padding: .3rem;
+      padding: .2rem;
     }
   }
   .conUl{
@@ -188,6 +204,11 @@ export default {
     font-size: .24rem;
     color: #818181;
     padding-right: .2rem;
+  }
+  .lip3 span:nth-child(2){
+    font-size: .3rem;
+    color: #ff2336;
+    margin-left: .1rem;
   }
   button{
     border: none;

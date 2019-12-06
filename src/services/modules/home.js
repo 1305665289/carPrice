@@ -18,3 +18,8 @@ export let getDetailList = (SerialID)=>{
 export let getPiclList = (SerialID)=>{
     return request('/v2-car-getImageList.html',{params:{SerialID}})
 }
+
+//价格
+export let getPricelList = (SerialID)=>{
+    return request('/v2-car-getImageList.html',{params:{SerialID}})
+}
