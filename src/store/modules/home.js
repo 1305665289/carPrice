@@ -24,7 +24,13 @@ const actions = {
     async getMasterBrandList({commit}, payload){
         let res = await getMasterBrandList();
         await  commit('updateList', res.data);
+<<<<<<< HEAD
         await commit("setArr",res.data)
+=======
+        // await commit("setArr",res.data)
+        // console.log('res...', res);
+         commit('updateList', res.data);
+>>>>>>> lyp
     }, 
     async getMasterRightList({commit},payload){
         console.log(payload)
