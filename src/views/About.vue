@@ -2,7 +2,7 @@
   <div class="home">
     <div class="main">
       <div class="image">
-        <img :src="detailLists.CoverPhoto" alt="">
+        <img :src="detailLists.CoverPhoto" alt="" >
         <p class="num">{{detailLists.pic_group_count}}张照片</p>
       </div>
       <div class="middle">

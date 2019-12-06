@@ -1,11 +1,13 @@
 <template>
    <div class="wrap">
-     <header class="series_wrap_header">
+         <header class="series_wrap_header">
             <p>颜色</p>
             <p>车款</p>
         </header>
-        
-          <Pir v-for="(item,index) in pic" :key="index" :item='item'/>
+        <main>
+               <Pir v-for="(item,index) in pic" :key="index" :item='item'/>
+        </main>
+          
      
    </div>
 </template>
@@ -26,6 +28,7 @@ export default {
       ...mapActions({
       getPicList:'pic/getPicList'
     })
+    
   },
    created(){
       this.getPicList()
@@ -35,14 +38,23 @@ export default {
 
 <style lang='scss' scoped>
 .wrap{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-    background: #fff;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+     width: 100%;
+     height: 100%;
+    // min-height: 100%;
+    // background: #fff;
     display: flex;
     flex-direction: column
+}
+header{
+  width: 100%;
+  height: .4rem;
+}
+main{
+  flex: 1;
+  overflow: auto;
 }
 .series_wrap_header{
     width: 100%;

@@ -1,13 +1,13 @@
 <template>
-<div>
-    <div>
-        <p>{{item.Name}}</p>
-        <p>{{item.Count}}张</p>
-    </div>
-     <li v-for="(itemimg,key) in item.List" :key="key">
-        <span src='' :style="{backgroundImage:'url('+itemimg.Url+')'}"/>
-    </li>
-</div>
+  <div class="box">
+        <div>
+            <p class="pos">{{item.Name}}</p>
+            <p class="abs">{{item.Count}}张</p>
+        </div>
+         <li v-for="(itemimg,key) in item.List" :key="key">
+            <span :style="{backgroundImage:'url('+itemimg.Url+')'}"/>
+         </li>
+  </div>
 </template>
 
 <script>
@@ -23,8 +23,40 @@ export default {
        list-style: none;
        text-decoration: none
    }
-   li{
+   .box{
+       width: 100%;
+    //    height: 100%;
        display: flex;
-
+    //    flex-direction: column;
+          flex-wrap: wrap;
+       position: relative;
+   } 
+    li{
+        width: 32.8%;
+        height: 123px;
+        padding: 1px 1px;
+        span{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+   .pos{
+       top: 40px;
+       left: 50px;
+       z-index: 1;
+       font-size: 14px;
+       color: aliceblue;
+       position: absolute;
+   }
+   .abs{
+       top: 55px;
+       left: 50px;
+       z-index: 1;
+       font-size: 14px;
+       color: aliceblue;
+       position: absolute;
    }
 </style>
