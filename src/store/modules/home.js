@@ -2,8 +2,7 @@ import {getMasterBrandList,getMasterRightList} from '@/services/index'
 const state = {
     list: [],
     lis:[],
-    right:[],
-    arr:[]
+    right:[]
 }
 const mutations = {
     updateList(state, payload){   
@@ -16,28 +15,27 @@ const mutations = {
             }
         })   
      },
-     setArr(state,data) {
-        state.arr = ['#'].concat([...new Set(data.map(item=>{
-          return item.Spelling[0];
-        }))])
-        console.log(state.arr)
-      },
      updateRight(state,payload){
-        state.right = payload   
+        state.right=payload
      }
  }
  
 const actions = {
     async getMasterBrandList({commit}, payload){
         let res = await getMasterBrandList();
+<<<<<<< HEAD
         await  commit('updateList', res.data);
         await commit("setArr",res.data)
+=======
+        // console.log('res...', res);
+         commit('updateList', res.data);
+>>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
     }, 
     async getMasterRightList({commit},payload){
         console.log(payload)
         let res = await getMasterRightList(payload)
         console.log('1````````',res)
-        await  commit('updateRight', res.data)
+          commit('updateRight', res.data)
     }
 }
 export default {

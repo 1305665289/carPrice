@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
      <div class="home">
         <div class="main">
@@ -250,3 +251,5 @@ export default {
   }
 }
 </style>
+=======
+>>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {getDetailList} from '@/services/index'
 
 const state = {
@@ -101,3 +102,5 @@ export default {
     mutations,
     actions
 }
+=======
+>>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2

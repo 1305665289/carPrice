@@ -26,10 +26,15 @@ export default {
   methods:{
     detail(SerialID){
         console.log(SerialID)
+<<<<<<< HEAD
         this.$router.push({
+=======
+          this.$router.push({
+>>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
            path:'/about',
            query:{SerialID:SerialID}
       })
+      
      }
    }
 }

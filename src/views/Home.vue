@@ -1,43 +1,56 @@
 <template>
   <div class="home">
+<<<<<<< HEAD
           <div v-for="(item,index) in lis" :key="index" class="box">
+=======
+          <div v-for="(item,index) in lis" :id='item.letter'  :key="index" class="box">
+>>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
                    <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
                         <img v-lazy="item.CoverPhoto" alt="">
-                        <span>{{item.Name}}</span>  
+                        <span>{{item.Name}}</span>   
                    </li>
-                 </ul>
+                 </ul> 
+                  
           </div>
+          <ul class="right">
+            <li v-for="(item,index) in lis" :key="index">
+               <p @click='fun(item.letter)'>
+                 {{item.letter}}
+               </p> 
+            </li>
+          </ul>
           <Rleft class="rl">
 
           </Rleft>
+<<<<<<< HEAD
           <NavList :arr="arr" @Parent_jump="jumps"></NavList>
       
+=======
+>>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
   </div>
 </template>
 <script>
 import {mapActions, mapState} from 'vuex'
 import Rleft from '../components/Rleft'
-import NavList from "@/components/nav_list/";
+
 import { black } from 'color-name';   
 export default {
   name: 'home',
   components: {
       Rleft,
-      NavList
   },
   computed: {
     ...mapState({
       list: state=>state.home.list,
       lis: state=>state.home.lis,
-      arr:state=>state.home.arr,
       right:state=> state.home.right
     })
   },
   methods: {
     ...mapActions({
-      getMasterBrandList: 'home/getMasterBrandList',
+      getMasterBrandList:'home/getMasterBrandList',
       getMasterRightList: 'home/getMasterRightList'
     }),
     rleft(MasterID){
@@ -46,13 +59,10 @@ export default {
          document.querySelector('.rl').style='display:block'
       }
     },
-    jumps(item) {
-      console.log(item);
-      this.idScroll = item;
-      document.querySelector(".list-page").scrollTop = document.querySelector(
-        `#${item}`
-      ).offsetTop;
-    }
+     fun(item){
+       console.log(item)
+          document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+      }
   },
   created() {
     // 获取首页的数据 
@@ -72,6 +82,7 @@ export default {
   }
   .home{
     width: 100%;
+    overflow-y: scroll;
   }
   .box {
     width: 100%;
@@ -81,20 +92,24 @@ export default {
     text-align: center;
   
   }
+  .right{
+  position: fixed;
+  // display: flex;
+  // flex-direction: column;
+  right: 0px;
+  top: 120px;
+  p{
+    line-height: 20px;
+    font-size: 12px;
+    color: #666666;
+  }
+ }
    .lii{
       width: 100%;
       height: 1rem;
       display: flex;
       margin-left: 15px;
       border-bottom: 1px solid #ddd;
-   }
-   .nav_list{
-     width:0.40rem ;
-     font-size: 12px;
-     color: #666666;   
-     position: fixed;
-     top: 25%;
-     right: 0px;
    }
     img{
      width: .8rem;
@@ -122,6 +137,9 @@ export default {
      top: 0;
      display: none
    }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
 </style>
