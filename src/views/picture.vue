@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 
 <template>
    <div class="wrap">
@@ -74,4 +72,3 @@ main{
 
 </style>
 
->>>>>>> lyp
