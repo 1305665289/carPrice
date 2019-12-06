@@ -4,7 +4,8 @@ const state = {
     detailLists:[],
     detailYear:[], //年份
     allYear: '全部',    // 当前选择年份 与筛选/排序时命名应用
-    allYearList:[]
+    allYearList:[],
+    everyList:[]
 }
 
 // 给车款排序
@@ -78,10 +79,12 @@ const mutations = {
         allYearList = formatCarList(allYearList);
         state.allYearList = allYearList;
         // console.log('allYearList...', allYearList);
-
+        
+        state.allYearList.map(item=>{
+            return state.everyList=item.list
+        })
         console.log(state.allYearList)
-        console.log(state.detailYear)
-        console.log(state.allYear)
+        console.log(state.everyList)
     }
 }
 
