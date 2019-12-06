@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <template>
    <div class="wrap">
          <header class="series_wrap_header">
@@ -33,7 +32,7 @@ export default {
     
   },
    created(){
-      this.getPicList()
+      this.getPicList(this.$route.query.SerialID)
    }
 }
 </script>
@@ -72,4 +71,4 @@ main{
 }
 
 </style>
->>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
+

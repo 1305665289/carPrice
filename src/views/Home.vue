@@ -1,10 +1,8 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
+
           <div v-for="(item,index) in lis" :key="index" class="box">
-=======
-          <div v-for="(item,index) in lis" :id='item.letter'  :key="index" class="box">
->>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
+      
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
                    <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
@@ -24,11 +22,6 @@
           <Rleft class="rl">
 
           </Rleft>
-<<<<<<< HEAD
-          <NavList :arr="arr" @Parent_jump="jumps"></NavList>
-      
-=======
->>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
   </div>
 </template>
 <script>
@@ -137,9 +130,4 @@ export default {
      top: 0;
      display: none
    }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> e1a42a389e16daa0f32806e0d5a65b5f910d50b2
 </style>
