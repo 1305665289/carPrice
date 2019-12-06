@@ -30,7 +30,6 @@ const mutations = {
 const actions = {
     async getMasterBrandList({commit}, payload){
         let res = await getMasterBrandList();
-        // console.log('res...', res);
         await  commit('updateList', res.data);
         await commit("setArr",res.data)
     }, 

@@ -13,8 +13,7 @@ const actions = {
     async getPiclList({commit}, payload){
         console.log(payload)
         let res = await getPiclList(payload);
-        // console.log('res...', res);
-        // await  commit('updateList', res.data);
+        console.log(res)
         await commit("setArr",res.data)
     }
 }

@@ -72,11 +72,10 @@ export default {
       console.log(SerialID)
       this.$router.push({
         path:'/picture',
-        qurey:{SerialID:SerialID}
+        query:{SerialID:SerialID}
       })
     },
     handle(index){
-      console.log(index)
       this.curIndex=index
     }
   },
