@@ -12,8 +12,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     detail,
-    home,
-    pic
+    home
   },
   plugins: [creareLogger()]
 })

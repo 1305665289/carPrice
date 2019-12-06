@@ -15,7 +15,7 @@ export let getDetailList = (SerialID)=>{
 }
 
 //图片页
-export let getPiclList = (SerialID)=>{
+export let getPicList = (SerialID)=>{
     return request('/v2-car-getImageList.html',{params:{SerialID}})
 }
 
