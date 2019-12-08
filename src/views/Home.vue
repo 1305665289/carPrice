@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-
           <div v-for="(item,index) in lis" :key="index" class="box">
-      
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
                    <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
@@ -10,24 +8,18 @@
                         <span>{{item.Name}}</span>   
                    </li>
                  </ul> 
-                  
           </div>
           <ul class="right">
             <li v-for="(item,index) in lis" :key="index">
-               <p @click='fun(item.letter)'>
-                 {{item.letter}}
-               </p> 
+               <p @click='fun(item.letter)'> {{item.letter}} </p> 
             </li>
           </ul>
-          <Rleft class="rl">
-
-          </Rleft>
+          <Rleft class="rl"></Rleft>
   </div>
 </template>
 <script>
 import {mapActions, mapState} from 'vuex'
 import Rleft from '../components/Rleft'
-
 import { black } from 'color-name';   
 export default {
   name: 'home',
@@ -54,7 +46,7 @@ export default {
     },
      fun(item){
        console.log(item)
-          document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+          // document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
       }
   },
   created() {

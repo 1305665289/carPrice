@@ -19,6 +19,6 @@ export let getPicList = (SerialID)=>{
 }
 
 //价格
-export let getPricelList = (SerialID)=>{
-    return request('/v2-car-getImageList.html',{params:{SerialID}})
+export let getPricelList = (carId)=>{
+    return request(`/v2-dealer-alllist.html?carId=${carId}&cityId=201`)
 }

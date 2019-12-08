@@ -56,12 +56,12 @@ function formatCarList(list){
 const mutations = {
     detailList(state,payload){
         state.detailLists=payload.data;
-        console.log(state.detailLists);
+        console.log(state.detailLists)
 
         //获取年份
         let year=payload.data.list.map(item=>item.market_attribute.year);
         state.detailYear=Array.from(new Set(year));
-        console.log(state.detailYear)
+        // console.log(state.detailYear)
         
         //获取当前选择的年份
         let allYearList=[];
@@ -84,12 +84,12 @@ const mutations = {
             return state.everyList=item.list
         })
         console.log(state.allYearList)
-        console.log(state.everyList)
     }
 }
 
 const actions = {
     async getDetailList({commit}, payload){
+        console.log(payload)
         let res = await getDetailList(payload);
         commit('detailList', res);
     }

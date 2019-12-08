@@ -1,11 +1,11 @@
 import {getPricelList} from '@/services/index'
 const state = {
-    arrID:[]
+    arr:[]
 }
 const mutations = {
     setArr(state,payload){
-        state.arrID=payload
-        console.log(state.arrID)
+        state.arr=payload
+        console.log(state.arr)
     }
  }
  
@@ -13,7 +13,7 @@ const actions = {
     async getPricelList({commit}, payload){
         console.log(payload)
         let res = await getPricelList(payload);
-        console.log(res)
+        console.log(res.data)
         await commit("setArr",res.data)
     }
 }

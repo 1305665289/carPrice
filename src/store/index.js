@@ -6,13 +6,15 @@ import creareLogger from 'vuex/dist/logger';
 import detail from './modules/detail'
 import home from './modules/home'
 import pic from './modules/pic'
+import price from './modules/price'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
     detail,
     home,
-    pic
+    pic,
+    price
   },
   plugins: [creareLogger()]
 })
