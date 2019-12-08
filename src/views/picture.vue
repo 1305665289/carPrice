@@ -2,14 +2,12 @@
 <template>
    <div class="wrap">
          <header class="series_wrap_header">
-            <p>颜色</p>
+            <p @click="(toColor(SerialID))">颜色</p>
             <p>车款</p>
         </header>
         <main>
                <Pir v-for="(item,index) in pic" :key="index" :item='item'/>
         </main>
-          
-     
    </div>
 </template>
 
@@ -28,8 +26,13 @@ export default {
   methods:{
       ...mapActions({
       getPicList:'pic/getPicList'
-    })
-    
+    }),
+    toColor(SerialID){
+         this.$router.push({
+           path:'/toColor',
+           query:{SerialID}
+         })
+    }
   },
    created(){
       this.getPicList(this.$route.query.SerialID)

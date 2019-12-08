@@ -22,3 +22,7 @@ export let getPicList = (SerialID)=>{
 export let getPricelList = (SerialID)=>{
     return request('/v2-car-getImageList.html',{params:{SerialID}})
 }
+//颜色
+export let getColorList = (SerialID)=>{
+    return request('/v2-car-getModelImageYearColor.html',{params:{SerialID}})
+}
