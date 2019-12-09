@@ -84,6 +84,9 @@ const mutations = {
             return state.everyList=item.list
         })
         console.log(state.allYearList)
+    },
+    detailMoList(state,payload){
+        state.Molist=payload
     }
 }
 

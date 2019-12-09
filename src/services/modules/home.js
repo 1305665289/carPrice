@@ -18,7 +18,17 @@ export let getPicList = (SerialID)=>{
     return request('/v2-car-getImageList.html',{params:{SerialID}})
 }
 
-//价格
-export let getPricelList = (carId)=>{
-    return request(`/v2-dealer-alllist.html?carId=${carId}&cityId=201`)
+//价格 (必须传递两个不同的ID值才可以获取相应的数据)
+export let getPricelList = ({carId,cityId})=>{
+    return request(`/v2-dealer-alllist.html?carId=${carId}&cityId=${cityId}`)
+}
+
+//城市列表
+export let getCityList=()=>{
+    return request('/v1-city-alllist.html')
+}
+
+//默认城市(IP城市)
+export let getMoCityList=()=>{
+    return request('/location-client.html')
 }

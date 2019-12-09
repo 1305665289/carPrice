@@ -89,7 +89,7 @@ export default {
     },
     price(id){
       // console.log(id)
-      let arr=localStorage.setItem('id',id)
+      let arr=localStorage.setItem('carId',id)
       this.$router.push({
         path:'/carlei',
         query:{id:id}
@@ -100,7 +100,8 @@ export default {
     // 获取详情页页的数据 拿到首页传递的=》ID
     this.getDetailList(this.$route.query.SerialID);
     this.getPricelList()
-  }
+   
+}
 }
 </script>
 

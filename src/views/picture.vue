@@ -8,8 +8,6 @@
         <main>
                <Pir v-for="(item,index) in pic" :key="index" :item='item'/>
         </main>
-          
-     
    </div>
 </template>
 
