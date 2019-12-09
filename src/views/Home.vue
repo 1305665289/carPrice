@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-
-          <div v-for="(item,index) in lis" :key="index" class="box">
-      
+          <div v-for="(item,index) in lis" :key="index" :id="item.letter" class="box" >
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
                    <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
@@ -10,24 +8,20 @@
                         <span>{{item.Name}}</span>   
                    </li>
                  </ul> 
-                  
           </div>
           <ul class="right">
-            <li v-for="(item,index) in lis" :key="index">
+            <li v-for="(item,index) in lis" :key="index" >
                <p @click='fun(item.letter)'>
                  {{item.letter}}
                </p> 
             </li>
           </ul>
-          <Rleft class="rl">
-
-          </Rleft>
+          <Rleft class="rl"></Rleft>
   </div>
 </template>
 <script>
 import {mapActions, mapState} from 'vuex'
 import Rleft from '../components/Rleft'
-
 import { black } from 'color-name';   
 export default {
   name: 'home',
@@ -50,10 +44,10 @@ export default {
        this.getMasterRightList(MasterID)
       if(document.querySelector('.lii')){
          document.querySelector('.rl').style='display:block'
-      }
+      } 
     },
      fun(item){
-       console.log(item)
+       console.log(document.querySelector('.home').scrollTop,document.querySelector(`#${item}`).offsetTop)
           document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
       }
   },
@@ -75,6 +69,7 @@ export default {
   }
   .home{
     width: 100%;
+    height: 100%;
     overflow-y: scroll;
   }
   .box {
