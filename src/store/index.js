@@ -6,13 +6,17 @@ import creareLogger from 'vuex/dist/logger';
 import detail from './modules/detail'
 import home from './modules/home'
 import pic from './modules/pic'
+import toColor from './modules/toColor'
+import toKuan from './modules/toKuan'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
     detail,
     home,
-    pic
+    pic,
+    toColor,
+    toKuan
   },
   plugins: [creareLogger()]
 })

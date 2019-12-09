@@ -1,17 +1,17 @@
-import {getColorList} from '@/services/index'
+import {getKuanList} from '@/services/index'
 const state = {
       list:{}
 }
 const mutations = {
-        updataColor(state,payload){
+        updataKuan(state,payload){
             state.list=payload
         }
  }
 const actions = {
-   async getColorList({commit},payload){
-       let res= await getColorList(payload)
+   async getKuanList({commit},payload){
+       let res= await getKuanList(payload)
        console.log(res)
-       commit('updataColor',res.data)
+       commit('updataKuan',res.data)
    }
 }
 export default {

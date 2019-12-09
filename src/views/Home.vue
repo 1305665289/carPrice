@@ -8,7 +8,6 @@
                         <span>{{item.Name}}</span>   
                    </li>
                  </ul> 
-                  
           </div>
           <ul class="right">
             <li v-for="(item,index) in lis" :key="index" >
@@ -17,15 +16,12 @@
                </p> 
             </li>
           </ul>
-          <Rleft class="rl">
-
-          </Rleft>
+          <Rleft class="rl"></Rleft>
   </div>
 </template>
 <script>
 import {mapActions, mapState} from 'vuex'
 import Rleft from '../components/Rleft'
-
 import { black } from 'color-name';   
 export default {
   name: 'home',

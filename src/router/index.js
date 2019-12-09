@@ -22,6 +22,10 @@ const routes = [
     component:()=>import('../views/toColor.vue')
   },
   {
+    path:"/toKuan",
+    component:()=>import('../views/toKuan.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting

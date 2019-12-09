@@ -17,9 +17,7 @@ const mutations = {
  
 const actions = {
    async getPicList({commit},payload){
-       
        let res= await getPicList(payload)
-       console.log('lllll',res)
        commit('updataPic',res.data)
    }
 }
