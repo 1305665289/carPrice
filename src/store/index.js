@@ -22,6 +22,7 @@ export default new Vuex.Store({
     home,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     pic
 >>>>>>> lyp
 =======
@@ -33,6 +34,11 @@ export default new Vuex.Store({
     pic,
     price
 >>>>>>> szwt
+=======
+    pic,
+    toColor,
+    toKuan
+>>>>>>> 1ee28b14a43bca76c28bde51d5f0273b8cbace32
   },
   plugins: [creareLogger()]
 })

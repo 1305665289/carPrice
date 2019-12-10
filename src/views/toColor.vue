@@ -10,7 +10,7 @@
                  </span>
             </p> 
              <ul>
-                  <li v-for="(v,index) in colorData" :key="index" @click="clickColor(v.ColorId)">
+                  <li v-for="(v,index) in arr" :key="index" @click="clickColor(v.ColorId)">
                      <span :style="{background:v.Value}"></span>
                      {{v.Name}}
                   </li>
@@ -19,7 +19,7 @@
    </div>
 </template>
 <script>
-import {mapActions, mapState} from 'vuex'
+import {mapActions, mapState,mapMutations} from 'vuex'
 export default {
    data() {
       return {
@@ -29,17 +29,22 @@ export default {
    },
     computed:{
       ...mapState({
-           list:state=>state.toColor.list
+           list:state=>state.toColor.list,
+           arr:state=>state.toColor.arr
       })
     },
     methods:{
       ...mapActions({
             getColorList:'toColor/getColorList'
          }),
+         ...mapMutations({
+              lyp:'toColor/lyp'
+         }),
            handleC(item,key){
-            this.colorData=item
             this.curIndex=key
+            this.lyp(item)
         },
+          
         clickColor(colorId){
             this.getCarColor(colorId);
         }
