@@ -32,3 +32,13 @@ export let getCityList=()=>{
 export let getMoCityList=()=>{
     return request('/location-client.html')
 }
+
+//颜色
+export let getColorList = (SerialID)=>{
+    return request('/v2-car-getModelImageYearColor.html',{params:{SerialID}})
+}
+
+//车款
+export let getKuanList = (SerialID)=>{
+    return request('/v2-car-getInfoAndListById.html',{params:{SerialID}})
+}
