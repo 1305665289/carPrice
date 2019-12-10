@@ -1,11 +1,12 @@
-import {getDetailList} from '@/services/index'
+import {getDetailList,getPricelList} from '@/services/index'
 
 const state = {
     detailLists:[],
     detailYear:[], //年份
     allYear: '全部',    // 当前选择年份 与筛选/排序时命名应用
     allYearList:[],
-    everyList:[]
+    everyList:[],
+    Molist:[]
 }
 
 // 给车款排序
@@ -56,12 +57,12 @@ function formatCarList(list){
 const mutations = {
     detailList(state,payload){
         state.detailLists=payload.data;
-        console.log(state.detailLists);
+        console.log(state.detailLists)
 
         //获取年份
         let year=payload.data.list.map(item=>item.market_attribute.year);
         state.detailYear=Array.from(new Set(year));
-        console.log(state.detailYear)
+        // console.log(state.detailYear)
         
         //获取当前选择的年份
         let allYearList=[];
@@ -84,15 +85,24 @@ const mutations = {
             return state.everyList=item.list
         })
         console.log(state.allYearList)
-        console.log(state.everyList)
+    },
+    detailMoList(state,payload){
+        state.Molist=payload
+        console.log(state.Molist)
     }
 }
 
 const actions = {
     async getDetailList({commit}, payload){
+        console.log(payload)
         let res = await getDetailList(payload);
         commit('detailList', res);
-    }
+    },
+    async getPricelList({commit}){
+        let res = await getPricelList();
+        console.log(res.data)
+        await commit("detailMoList",res.data)
+    } 
 }
 
 export default {

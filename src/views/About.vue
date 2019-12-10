@@ -11,7 +11,7 @@
               <li class="one">{{detailLists.market_attribute.dealer_price}}</li>
               <li class="two">指导价 {{detailLists.market_attribute.official_refer_price}}</li>
             </ul>
-            <span @click="price(detailLists.SerialID)">{{detailLists.BottomEntranceTitle}}</span>
+            <span @click="price(allYearList[0].list[0].car_id)">{{detailLists.BottomEntranceTitle}}</span>
           </div>
 
           <div class="bottom">
@@ -30,18 +30,18 @@
                       <li>
                         <p class="lip1">{{ite.market_attribute.year}}款 {{ite.car_name}}</p>
                         <p class="lip2">{{ite.horse_power}}马力{{ite.gear_num}}档{{ite.trans_type}}</p>
-                        <p class="lip3" @click="price(detailLists.SerialID)">
+                        <p class="lip3" @click="price(ite.car_id)">
                           <span>指导价 {{ite.market_attribute.official_refer_price}}</span>
                           <span>{{ite.market_attribute.dealer_price_min}}</span>
                         </p>
                       </li>
-                      <button @click="price(detailLists.SerialID)">{{detailLists.BottomEntranceTitle}}</button>
+                      <button @click="price(ite.car_id)">{{detailLists.BottomEntranceTitle}}</button>
                   </ul>
               </div>
           </div>
 
         </div>
-        <div class="footer" @click="price(detailLists.SerialID)">
+        <div class="footer" @click="price(allYearList[0].list[0].car_id)">
           <p class="one">{{detailLists.BottomEntranceTitle}}</p>
           <p class="two">本地经销商为你报价</p>
         </div>
@@ -64,12 +64,12 @@ export default {
         detailYear:state=>state.detail.detailYear,
         allYear:state=>state.detail.allYear,
         allYearList:state=>state.detail.allYearList,
-        // years:state=>state.detail.years
     })
   },
   methods: {
     ...mapActions({
       getDetailList: 'detail/getDetailList',
+      getMoCityList: "price/getMoCityList"
     }),
     handleImg(SerialID){
       // console.log(SerialID)
@@ -87,17 +87,20 @@ export default {
       this.curIndex=-1
       this.$refs.actives.className='active'
     },
-    price(SerialID){
-      // console.log(SerialID)
+    price(id){
+      console.log(id)
+      // let arr=localStorage.setItem('carId',id)
+      // console.log(arr)
       this.$router.push({
-        path:'/carlei',
-        query:{SerialID:SerialID}
+        path:'/carlei'
       })
     }
   },
   created() {
     // 获取详情页页的数据 拿到首页传递的=》ID
     this.getDetailList(this.$route.query.SerialID);
+    // this.getPricelList()
+    this.getMoCityList()
   }
 }
 </script>
@@ -118,6 +121,8 @@ export default {
   overflow: auto;
   position: relative;
   .image{
+    width: 100%;
+    height: 5.06rem;
     position: relative;
     img{
     width: 100%;

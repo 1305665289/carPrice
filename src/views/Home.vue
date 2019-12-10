@@ -1,6 +1,10 @@
 <template>
   <div class="home">
+<<<<<<< HEAD
           <div v-for="(item,index) in lis" :key="index" :id="item.letter" class="box" >
+=======
+          <div v-for="(item,index) in lis" :key="index" class="box">
+>>>>>>> szwt
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
                    <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
@@ -10,10 +14,15 @@
                  </ul> 
           </div>
           <ul class="right">
+<<<<<<< HEAD
             <li v-for="(item,index) in lis" :key="index" >
                <p @click='fun(item.letter)'>
                  {{item.letter}}
                </p> 
+=======
+            <li v-for="(item,index) in lis" :key="index">
+               <p @click='fun(item.letter)'> {{item.letter}} </p> 
+>>>>>>> szwt
             </li>
           </ul>
           <Rleft class="rl"></Rleft>
@@ -47,8 +56,13 @@ export default {
       } 
     },
      fun(item){
+<<<<<<< HEAD
        console.log(document.querySelector('.home').scrollTop,document.querySelector(`#${item}`).offsetTop)
           document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+=======
+       console.log(item)
+          // document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+>>>>>>> szwt
       }
   },
   created() {
