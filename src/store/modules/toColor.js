@@ -1,10 +1,16 @@
 import {getColorList} from '@/services/index'
 const state = {
-      list:{}
+      list:{},
+      arr:[]
 }
 const mutations = {
         updataColor(state,payload){
             state.list=payload
+            let obj=JSON.parse(JSON.stringify(state.list))
+            state.arr=Object.values(obj)[0]
+        },
+        lyp(state,payload){
+            state.arr=payload
         }
  }
 const actions = {

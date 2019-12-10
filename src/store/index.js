@@ -13,18 +13,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     detail,
-<<<<<<< HEAD
-    home
-=======
     home,
-<<<<<<< HEAD
-    pic
->>>>>>> lyp
-=======
     pic,
     toColor,
     toKuan
->>>>>>> lyp
   },
   plugins: [creareLogger()]
 })
