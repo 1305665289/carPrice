@@ -38,7 +38,8 @@ export default {
             getColorList:'toColor/getColorList'
          }),
          ...mapMutations({
-              lyp:'toColor/lyp'
+              lyp:'toColor/lyp',
+              getCarColor:'pic/getCarColor'
          }),
            handleC(item,key){
             this.curIndex=key
@@ -46,7 +47,12 @@ export default {
         },
           
         clickColor(colorId){
+           let SerialID=this.$route.query.SerialID
             this.getCarColor(colorId);
+            this.$router.back({
+               path:'/picture',
+               query:{SerialID}
+            })
         }
     },
     created(){
@@ -66,7 +72,6 @@ export default {
       display: flex;
       flex-direction: column
    }
-
    header{
       width: 100%;
       height: .8rem;

@@ -14,8 +14,8 @@ export let getDetailList = (SerialID)=>{
 }
 
 //图片页
-export let getPicList = (SerialID)=>{
-    return request('/v2-car-getImageList.html',{params:{SerialID}})
+export let getPicList = (params)=>{
+    return request('/v2-car-getImageList.html',{params})
 }
 
 //价格 (必须传递两个不同的ID值才可以获取相应的数据)
@@ -38,7 +38,3 @@ export let getColorList = (SerialID)=>{
     return request('/v2-car-getModelImageYearColor.html',{params:{SerialID}})
 }
 
-//车款
-export let getKuanList = (SerialID)=>{
-    return request('/v2-car-getInfoAndListById.html',{params:{SerialID}})
-}

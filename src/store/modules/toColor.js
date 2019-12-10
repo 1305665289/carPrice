@@ -12,12 +12,14 @@ const mutations = {
         lyp(state,payload){
             state.arr=payload
         }
+      
  }
 const actions = {
    async getColorList({commit},payload){
        let res= await getColorList(payload)
        console.log(res)
        commit('updataColor',res.data)
+
    }
 }
 export default {
