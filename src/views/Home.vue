@@ -1,9 +1,16 @@
 <template>
   <div class="home">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <div v-for="(item,index) in lis" :key="index" :id="item.letter" class="box" >
 =======
           <div v-for="(item,index) in lis" :key="index" class="box">
+>>>>>>> szwt
+=======
+          <div v-for="(item,index) in lis" :key="index" class="box">
+=======
+          <div v-for="(item,index) in lis" :key="index" :id="item.letter" class="box" >
+>>>>>>> 1ee28b14a43bca76c28bde51d5f0273b8cbace32
 >>>>>>> szwt
              <p class="tit">{{item.letter}}</p>
                  <ul class="ull">
@@ -15,13 +22,23 @@
           </div>
           <ul class="right">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            <li v-for="(item,index) in lis" :key="index">
+               <p @click='fun(item.letter)'> {{item.letter}} </p> 
+=======
+>>>>>>> szwt
             <li v-for="(item,index) in lis" :key="index" >
                <p @click='fun(item.letter)'>
                  {{item.letter}}
                </p> 
+<<<<<<< HEAD
 =======
             <li v-for="(item,index) in lis" :key="index">
                <p @click='fun(item.letter)'> {{item.letter}} </p> 
+>>>>>>> szwt
+=======
+>>>>>>> 1ee28b14a43bca76c28bde51d5f0273b8cbace32
 >>>>>>> szwt
             </li>
           </ul>
@@ -57,11 +74,20 @@ export default {
     },
      fun(item){
 <<<<<<< HEAD
+<<<<<<< HEAD
        console.log(document.querySelector('.home').scrollTop,document.querySelector(`#${item}`).offsetTop)
           document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
 =======
        console.log(item)
           // document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+>>>>>>> szwt
+=======
+       console.log(item)
+          // document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+=======
+       console.log(document.querySelector('.home').scrollTop,document.querySelector(`#${item}`).offsetTop)
+          document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
+>>>>>>> 1ee28b14a43bca76c28bde51d5f0273b8cbace32
 >>>>>>> szwt
       }
   },
