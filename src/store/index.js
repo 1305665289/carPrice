@@ -6,11 +6,8 @@ import creareLogger from 'vuex/dist/logger';
 import detail from './modules/detail'
 import home from './modules/home'
 import pic from './modules/pic'
-
 import toColor from './modules/toColor'
 import toKuan from './modules/toKuan'
-
-
 import price from './modules/price'
 import city from './modules/city'
 

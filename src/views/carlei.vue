@@ -77,7 +77,7 @@ export default {
    }
   },
   mounted(){
-     this.getMoCityList()
+    this.getMoCityList()
     let carId=localStorage.getItem("carId")
     let {CityID}=this.Molist
     // console.log(CityID,carId)

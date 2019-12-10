@@ -57,6 +57,7 @@ function formatCarList(list){
 const mutations = {
     detailList(state,payload){
         state.detailLists=payload.data;
+        // state.detailLists.push(payload.data)
         console.log(state.detailLists)
 
         //获取年份
