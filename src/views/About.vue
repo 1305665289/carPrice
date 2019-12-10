@@ -69,7 +69,7 @@ export default {
   methods: {
     ...mapActions({
       getDetailList: 'detail/getDetailList',
-      getPricelList:'detail/getPricelList'
+      getMoCityList: "price/getMoCityList"
     }),
     handleImg(SerialID){
       // console.log(SerialID)
@@ -88,20 +88,20 @@ export default {
       this.$refs.actives.className='active'
     },
     price(id){
-      // console.log(id)
-      let arr=localStorage.setItem('carId',id)
+      console.log(id)
+      // let arr=localStorage.setItem('carId',id)
+      // console.log(arr)
       this.$router.push({
-        path:'/carlei',
-        query:{id:id}
+        path:'/carlei'
       })
     }
   },
   created() {
     // 获取详情页页的数据 拿到首页传递的=》ID
     this.getDetailList(this.$route.query.SerialID);
-    this.getPricelList()
-   
-}
+    // this.getPricelList()
+    this.getMoCityList()
+  }
 }
 </script>
 

@@ -19,8 +19,8 @@ export let getPicList = (SerialID)=>{
 }
 
 //价格 (必须传递两个不同的ID值才可以获取相应的数据)
-export let getPricelList = ({carId,cityId})=>{
-    return request(`/v2-dealer-alllist.html?carId=${carId}&cityId=${cityId}`)
+export let getPricelList = ({carId, CityID})=>{
+    return request(`/v2-dealer-alllist.html?carId=${carId}&cityId=${CityID}`)
 }
 
 //城市列表

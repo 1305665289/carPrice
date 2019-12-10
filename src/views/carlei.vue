@@ -74,12 +74,12 @@ export default {
      })
    }
   },
-  mounted(){ 
+  mounted(){
+     this.getMoCityList()
     let carId=localStorage.getItem("carId")
-    this.getMoCityList()
-    let cityId=this.Molist
-    console.log(cityId)
-    this.getPricelList({carId,cityId})
+    let {CityID}=this.Molist
+    console.log(CityID,carId)
+    this.getPricelList({carId,CityID})
   }
 }
 </script>
