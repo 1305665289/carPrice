@@ -2,7 +2,7 @@
   <div class="box" @scroll="handleScroll(e)" ref="boxs">
     <p class="title">可向多个商家咨询最低价，商家及时回复</p>
     <div class="concent">
-      <div class="con1"  v-if="Object.keys(arr).length">
+      <div class="con1"  v-if="Object.keys(arr).length" @click="tiao(carsID)">
           <img :src="arr.details.serial.Picture" alt="">
           <ul>
             <li>{{arr.details.serial.AliasName}}</li>
@@ -58,7 +58,8 @@ export default {
     ...mapState({
         arr:state=>state.price.arr,
         cityname:state=>state.price.cityname,
-        Molist:state=>state.price.Molist
+        Molist:state=>state.price.Molist,
+        carsID:state=>state.price.carsID
     })
   },
   methods:{
@@ -74,6 +75,12 @@ export default {
        path:'/city',
        query:{cityname:cityname}
      })
+   },
+   tiao(carsID){
+    //  this.$router.push({
+    //    path:'/toKuan',
+    //    SerialID:carsID
+    //  })
    }
   },
   mounted(){

@@ -61,7 +61,7 @@ const mutations = {
         console.log(state.detailLists)
 
         //获取年份
-        let year=payload.data.list.map(item=>item.market_attribute.year);
+        let year=state.detailLists.list.map(item=>item.market_attribute.year);
         state.detailYear=Array.from(new Set(year));
         // console.log(state.detailYear)
         

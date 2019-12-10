@@ -38,15 +38,8 @@ export let getColorList = (SerialID)=>{
     return request('/v2-car-getModelImageYearColor.html',{params:{SerialID}})
 }
 
-<<<<<<< HEAD
-//车款
-export let getKuanList = (SerialID)=>{
-    return request('/v2-car-getInfoAndListById.html',{params:{SerialID}})
-}
 
 //城市列表(省下的城市)
 export let getCitySList=(provinceid)=>{
     return request('/v1-city-alllist.html',{params:{provinceid}})
 }
-=======
->>>>>>> lyp

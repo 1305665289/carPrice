@@ -2,11 +2,15 @@ import {getPricelList,getMoCityList} from '@/services/index'
 const state = {
     arr:[],
     cityid:[],
-    Molist:{}
+    Molist:{},
+    carsID:[]
 }
 const mutations = {
     setArr(state,payload){
         state.arr=payload
+        console.log(state.arr)
+        state.carsID=state.arr.details.serial.SerialID
+        console.log(state.carID)
     },
     MosetArr(state,payload){
         state.Molist=payload
