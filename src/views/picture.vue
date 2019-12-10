@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> szwt
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
->>>>>>> szwt
-=======
->>>>>>> 1ee28b14a43bca76c28bde51d5f0273b8cbace32
->>>>>>> szwt
-
-=======
->>>>>>> lyp
 <template>
    <div class="wrap">
          <header class="series_wrap_header">
