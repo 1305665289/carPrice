@@ -23,7 +23,7 @@ export let getPricelList = ({carId, CityID})=>{
     return request(`/v2-dealer-alllist.html?carId=${carId}&cityId=${CityID}`)
 }
 
-//城市列表
+//城市列表(省份)
 export let getCityList=()=>{
     return request('/v1-city-alllist.html')
 }
@@ -41,4 +41,9 @@ export let getColorList = (SerialID)=>{
 //车款
 export let getKuanList = (SerialID)=>{
     return request('/v2-car-getInfoAndListById.html',{params:{SerialID}})
+}
+
+//城市列表(省下的城市)
+export let getCitySList=(provinceid)=>{
+    return request('/v1-city-alllist.html',{params:{provinceid}})
 }

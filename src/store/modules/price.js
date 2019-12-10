@@ -7,7 +7,6 @@ const state = {
 const mutations = {
     setArr(state,payload){
         state.arr=payload
-        console.log(state.arr)
     },
     MosetArr(state,payload){
         state.Molist=payload

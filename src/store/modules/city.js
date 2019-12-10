@@ -1,19 +1,27 @@
-import {getCityList} from '@/services/index'
+import {getCityList,getCitySList} from '@/services/index'
 const state = {
-    city:[]
+    city:[],
+    provinceid:[]
 }
 const mutations = {
     setArr(state,payload){
         state.city=payload
-        console.log(state.city)
+    },
+    setsArr(state,payload){
+        state.provinceid=payload
     }
  }
  
 const actions = {
     async getCityList({commit},payload){
         let res = await getCityList();
-        console.log(res.data)
         await commit("setArr",res.data)
+    },
+
+    async getCitySList({commit},payload){
+        let res = await getCitySList(payload);
+        console.log(res.data)
+        await commit("setsArr",res.data)
     }
 }
 export default {

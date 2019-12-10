@@ -14,8 +14,10 @@
       <div class="prenter">
         <p class="titleP">个人信息</p>
         <div class="con2">
-          <p>姓名<span>请输入您的真实中文姓名</span></p>
-          <p>手机<span>请输入您的真实手机号码</span></p>
+          <!-- <p>姓名<span>请输入您的真实中文姓名</span></p>
+          <p>手机<span>请输入您的真实手机号码</span></p> -->
+          <p>姓名<input placeholder="请输入您的真实中文姓名"/></p>
+          <p>手机<input placeholder="请输入您的真实手机号码"/></p>
           <p>地址<span @click="handleCity(Molist.CityName)">{{Molist.CityName}} ></span></p>
           <div class="btn">
             <button>询最低价</button>
@@ -28,7 +30,7 @@
         <p class="titleA">选择报价经销商</p>
         <div class="conA">
           <ul  v-for="(item,index) in arr.list" :key="index">
-            <input type="checkbox"/>
+            <input type="checkbox" checked="checked" ref="input"/>
             <li>
               <p><span>{{item.dealerShortName}}</span><span>万</span></p>
               <p><span>{{item.address}}</span><span>售{{item.saleRange}}</span></p>
@@ -78,7 +80,7 @@ export default {
      this.getMoCityList()
     let carId=localStorage.getItem("carId")
     let {CityID}=this.Molist
-    console.log(CityID,carId)
+    // console.log(CityID,carId)
     this.getPricelList({carId,CityID})
   }
 }
@@ -92,7 +94,6 @@ export default {
   flex-direction: column;
   background: #eeeeee;
   overflow: auto;
-  // position: relative;
 }
 .title{
   height: .6rem;
@@ -148,9 +149,10 @@ export default {
       margin: 0 .1rem;
       border-bottom: 1px solid #aaaaaa
     }
-    p span{
+    p input{
       margin-left: 2.8rem;
-      color: #aaaaaa
+      color: #aaaaaa;
+      border: none
     }
     p:nth-child(3) span{
       margin-left: 5.5rem;

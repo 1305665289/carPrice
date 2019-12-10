@@ -1,34 +1,61 @@
 <template>
-  <div class="box" ref="boxs">
+  <div class="box">
      <div class="title">
          <p>自动定位</p>
          <p @click="handle()" class="city">{{cityname}}</p>
      </div>
      <div class="concent">
          <p>省市</p>
-         <ul v-for="(item,index) in city" :key="index">
+         <ul v-for="(item,index) in city" :key="index" @click="handleC(item.CityID)">
              <li>{{item.CityName}}</li>
          </ul>
      </div>
+
+     <!-- 弹框 -->
+    <div class="shi" v-if="flage" @click="handT">
+        <CityItem class="concent" :CityID="CityID" :provinceid="provinceid"/>
+    </div>
+
   </div>
 </template>
 
 <script>
 import {mapActions, mapState} from 'vuex'
+import CityItem from '../components/CityItem'
 export default {
+  data(){
+    return {
+      flage:false,
+      CityID:''
+    }
+  },
+  components:{
+    CityItem
+  },
   computed: {
     ...mapState({
-        city:state=>state.city.city
+        city:state=>state.city.city,
+        provinceid:state=>state.city.provinceid
     })
   },
   methods:{
     ...mapActions({
       getCityList:'city/getCityList',
+      getCitySList:'city/getCitySList'
     }),
     handle(){
-         this.$router.push({
-             path:'/carlei'
-         })
+      this.$router.push({
+          path:'/carlei'
+      })
+    },
+    handleC(index){
+      this.flage=!this.flage
+      this.CityID=index
+      this.getCitySList(this.CityID)
+      console.log(this.CityID) 
+    },
+    handT(){
+      this.flage=!this.flage
     }
   },
   created(){ 
@@ -44,7 +71,23 @@ export default {
 .box{
     width: 100%;
     height: 100%;
-    overflow: auto
+    overflow: auto;
+    position: relative;
+}
+.shi{
+  background: rgba($color: #000000, $alpha: .5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .concent{
+    width: 80%;
+    height: 100%;
+    margin-left: 20%;
+    background: #fff;
+    overflow-y: scroll;
+  }
 }
 .title p:nth-child(1){
     height: .4rem;
@@ -93,4 +136,5 @@ li::after{
     right: .35rem;
     top: .3rem;
 }
+
 </style>

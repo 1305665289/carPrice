@@ -89,7 +89,7 @@ export default {
     },
     price(id){
       console.log(id)
-      // let arr=localStorage.setItem('carId',id)
+      let arr=localStorage.setItem('carId',id)
       // console.log(arr)
       this.$router.push({
         path:'/carlei'
