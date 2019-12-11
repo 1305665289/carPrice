@@ -3,6 +3,9 @@
 </template>
 
 <style lang="scss">
+*{
+  list-style: none
+}
 html,body{
   width: 100%;
   height: 100%;
@@ -10,9 +13,9 @@ html,body{
 html{
   font-size: calc(100vw/750*100);
 }
-@function pxTorem($font) {
-    @return $font * 2
-};
+// @function pxTorem($font) {
+//     @return $font * 2
+// };
 body{
   font-size: .32rem;
 }

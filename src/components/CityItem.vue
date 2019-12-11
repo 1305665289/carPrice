@@ -1,16 +1,9 @@
 <template>
-    <!-- <div>
+    <div>
         <ul v-for="(item,index) in provinceid" :key="index"> 
             <li @click="handle">{{item.CityName}}</li>
-        </ul> -->
-        <div id="app">
-        <transition :name="transitionName">
-        <keep-alive>
-            <router-view class="transitionBody" :key='key' ></router-view>
-        </keep-alive>
-        </transition>
+        </ul>
     </div>
-    <!-- </div> -->
 </template>
 
 <script>
@@ -23,7 +16,7 @@ export default {
             console.log('1')
             this.$router.push('/carlei')
         }
-    }
+    },
 }
 </script>
 

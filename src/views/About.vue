@@ -1,4 +1,5 @@
 <template>
+    
      <div class="home">
         <div class="main">
           <div class="image" @click="handleImg(detailLists.SerialID)">
@@ -72,7 +73,6 @@ export default {
       getMoCityList: "price/getMoCityList"
     }),
     handleImg(SerialID){
-      // console.log(SerialID)
       this.$router.push({
         path:'/picture',
         query:{SerialID:SerialID}
