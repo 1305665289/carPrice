@@ -1,10 +1,9 @@
-
-
 <template>
   <div id="app">
     <transition :name="transitionName">
       <keep-alive>
           <router-view class="transitionBody" :key='key' ></router-view>
+          <!-- <router-view></router-view> -->
       </keep-alive>
     </transition>
   </div>
@@ -24,21 +23,9 @@ export default ({
     },
     watch: { 
       '$route' (to, from) { 
-      // const arr = ['/city'];
+      const arr = ['about','carlei','/city'];
       const compare = arr.indexOf(to.path)>arr.indexOf(from.path);  
       this.transitionName = compare ? 'transitionLeft' : 'transitionRight';
-      // const arrs=['about','carlei'];
-      // const compares = arrs.indexOf(to.path)>arrs.indexOf(from.path);  
-      // this.transitionName = compares ? 'transitionRight' :''
-        if(arr = ['about','carlei']){
-          const compare = arr.indexOf(to.path)>arr.indexOf(from.path);  
-          this.transitionName = compare ? 'transitionLeft' : 'transitionRight';
-        }else if(arr=['/city']){
-          const compare = arr.indexOf(to.path)>arr.indexOf(from.path);  
-          this.transitionName = compare ? 'transitionRight' :''
-        }else{
-          this.transitionName=''
-        }
       } 
     }  
 })
@@ -50,6 +37,7 @@ export default ({
   margin: 0;
   list-style: none;
   box-sizing: border-box; 
+  text-decoration: none
 }
 #app,html,body{
   width: 100%;

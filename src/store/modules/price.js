@@ -8,9 +8,8 @@ const state = {
 const mutations = {
     setArr(state,payload){
         state.arr=payload
-        console.log(state.arr)
         state.carsID=state.arr.details.serial.SerialID
-        console.log(state.carID)
+        // console.log(state.arr.list.cityid)
     },
     MosetArr(state,payload){
         state.Molist=payload
@@ -21,14 +20,14 @@ const actions = {
     async getPricelList({commit}, payload){
         // console.log(...payload)
         let res = await getPricelList(payload);
-        console.log(res.data)
+        // console.log(res.data)
         await commit("setArr",res.data)
     },
     //城市北京
     async getMoCityList({commit}){
         // console.log(payload)
         let res = await getMoCityList();
-        console.log(res.data,"+++++++++")
+        // console.log(res.data,"+++++++++")
         await commit("MosetArr",res.data)
     }
 }

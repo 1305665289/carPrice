@@ -20,6 +20,7 @@ export let getPicList = (params)=>{
 
 //价格 (必须传递两个不同的ID值才可以获取相应的数据)
 export let getPricelList = ({carId, CityID})=>{
+    console.log(carId, CityID)   
     return request(`/v2-dealer-alllist.html?carId=${carId}&cityId=${CityID}`)
 }
 

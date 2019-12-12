@@ -1,4 +1,4 @@
-import {getKuanList} from '@/services/index'
+import {getDetailList} from '@/services/index'
 const state = {
       list:{}
 }
@@ -8,8 +8,8 @@ const mutations = {
         }
  }
 const actions = {
-   async getKuanList({commit},payload){
-       let res= await getKuanList(payload)
+   async getDetailList({commit},payload){
+       let res= await getDetailList(payload)
        console.log(res)
        commit('updataKuan',res.data)
    }

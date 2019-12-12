@@ -93,7 +93,8 @@ export default {
       // console.log(arr)
       console.log(arr)
       this.$router.push({
-        path:'/carlei'
+        path:'/carlei',
+        query:{id}
       })
     }
   },

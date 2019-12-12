@@ -34,7 +34,8 @@ export default {
   computed: {
     ...mapState({
         city:state=>state.city.city,
-        provinceid:state=>state.city.provinceid
+        provinceid:state=>state.city.provinceid,
+        cityNumId:state=>state.city.cityNumId
     })
   },
   methods:{

@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul v-for="(item,index) in provinceid" :key="index"> 
-            <li @click="handle">{{item.CityName}}</li>
+            <li @click="handle(provinceid[index].CityName,provinceid[index].CityID)">{{item.CityName}}</li>
         </ul>
     </div>
 </template>
@@ -12,9 +12,13 @@ import {mapActions, mapState} from 'vuex'
 export default {
     props:['CityID','provinceid'],
     methods:{
-        handle(){
-            console.log('1')
-            this.$router.push('/carlei')
+        handle(name,CityID){
+            console.log(name)
+            // console.log(cityNumId)
+            this.$router.push({
+                path:'/carlei',
+                query:{name,CityID}  
+            })
         }
     },
 }

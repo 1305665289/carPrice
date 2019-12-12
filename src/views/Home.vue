@@ -17,10 +17,9 @@
         </li>
       </ul>
 
-      <van-popup v-model="flage" position="right" :style="{ height: '100%',width:'70%' }" >
+      <van-popup v-model="flage" position="right"  :style="{ height: '100%',width:'70%' }" >
         <Rleft class="rl" />
       </van-popup>
-     
 
   </div>
 </template>
@@ -69,13 +68,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  *{
-    margin: 0px;
-    padding: 0;
-    list-style: none;
-    box-sizing: border-box;
-    text-decoration: none
-  }
   .hljs-comment{
     width: 100%;
     height: 100%;
