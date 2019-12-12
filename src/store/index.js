@@ -11,6 +11,7 @@ import toKuan from './modules/toKuan'
 import price from './modules/price'
 import city from './modules/city'
 
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -21,7 +22,7 @@ export default new Vuex.Store({
     pic,
     toColor,
     toKuan,
-    price
+    price,
   },
   plugins: [creareLogger()]
 })

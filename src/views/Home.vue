@@ -16,7 +16,10 @@
                </p> 
             </li>
           </ul>
-          <Rleft class="rl"></Rleft>
+      <Rleft class="rl" />
+      <!-- <van-popup v-model="flage" position="right"  :style="{ height: '100%',width:'70%' }" >
+        <Rleft class="rl" />
+      <van-popup> -->
   </div>
 </template>
 <script>

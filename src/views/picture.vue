@@ -24,7 +24,7 @@ export default {
   },
   methods:{
     ...mapActions({
-      getPicList:'pic/getPicList'
+      getPicList:'pic/getPicList',
     }),
     toColor(){
         console.log()

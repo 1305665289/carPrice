@@ -26,6 +26,10 @@ const routes = [
     component:()=>import('../views/toKuan.vue')
   },
   {
+    path:'/scroll',
+    component:()=>import('../views/scroll.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting

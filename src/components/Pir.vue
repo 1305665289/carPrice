@@ -1,18 +1,40 @@
 <template>
   <div class="box">
-        <div>
+        <div class="mack" @click="Toscroll(item.Id)">
             <p class="pos">{{item.Name}}</p>
             <p class="abs">{{item.Count}}张</p>
         </div>
-         <li v-for="(itemimg,key) in item.List" :key="key">
+        <li v-for="(itemimg,key) in item.List" :key="key">
             <span :style="{backgroundImage:'url('+itemimg.Url+')'}"/>
-         </li>
+        </li>
   </div>
 </template>
-
 <script>
+import {mapActions, mapState} from 'vuex'
 export default {
-  props:['item']
+  props:['item'],
+  
+  methods:{
+      ...mapActions({
+          imgList:'pic/imgList'
+      }),
+      Toscroll(ImageID){
+          console.log(ImageID)
+          let SerialID=this.$route.query.SerialID
+          this.$router.push({
+
+              path:'/scroll',
+              query:{SerialID}
+          })
+      
+          console.log(SerialID,'aaaa')
+          let Page=1,
+              PageSize=30
+          this.imgList({SerialID,ImageID,Page,PageSize})
+
+      }
+
+   }
 }
 </script>
 
@@ -40,6 +62,14 @@ export default {
             background-size: cover;
             background-position: center;
         }
+    }
+    .mack{
+        top: 0px;
+        left: 0px;
+        width: 32.8%;
+        height: 123px;
+        position: absolute;
+        background: rgba(0,0,0, .6);
     }
    .pos{
        top: 40px;
