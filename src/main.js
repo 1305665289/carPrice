@@ -8,7 +8,7 @@ import axios from 'axios'
 import VueLazyload from 'vue-lazyload'
 // import stricky from './instruct/stricky'
 // 引入Vant
-Vue.use(VueLazyload)
+
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
@@ -17,14 +17,11 @@ Vue.use(VueLazyload, {
   attempt: 1
 })
 import { Swipe, SwipeItem, ImagePreview } from 'vant';
-import 'vant/lib/index.css';
 Vue.use(Swipe).use(SwipeItem);
 Vue.use(ImagePreview);
-Vue.config.productionTip = false
-// import "./assets/font_1138472_nrhzb59f50n/iconfont.css"
-// import Vant from 'vant';
-// import 'vantb/index.css';
-// Vue.use(Vant);
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 Vue.prototype.$http=axios 
 Vue.config.productionTip = false
 new Vue({

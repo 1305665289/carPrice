@@ -3,27 +3,27 @@
         <li v-for="(item,index) in imgList" :key="index">
                <span :style="{backgroundImage:'url('+item.Url+')'}"/>
         </li>
-        <ImagePreview v-if="showImageSwiper" :showImageSwiper.sync="showImageSwiper"></ImagePreview>
+        <!-- <ImagePreview v-if="showImageSwiper" :showImageSwiper.sync="showImageSwiper"></ImagePreview> -->
   </div>
 </template>
 
 <script>
 import { mapActions, mapState, mapMutations } from "vuex";
-//引入分类列表组件
-import ImageTypeList from '@/components/ImageTypeList.vue';
-//引入轮播组件
-import ImageSwiper from '@/components/ImageSwiper.vue';
-//引入预览组件
-import ImagePreview from '@/components/ImagePreview.vue';
+// //引入分类列表组件
+// import ImageTypeList from '@/components/ImageTypeList.vue';
+// //引入轮播组件
+// import ImageSwiper from '@/components/ImageSwiper.vue';
+// //引入预览组件
+// import ImagePreview from '@/components/ImagePreview.vue';
 export default {
   components:{
-      ImageTypeList,
-      ImageSwiper,
-      ImagePreview
+      // ImageTypeList,
+      // ImageSwiper,
+      // ImagePreview
   },
   data() {
     return {
-         showImageSwiper: false
+        //  showImageSwiper: false
     }
   },
     computed: {
@@ -32,15 +32,15 @@ export default {
         })
     },
     methods:{
-       showSwiper(index, Count, List, ImageID){
-      this.setCurrent(index);
-      this.setImageList({
-        Count,
-        List,
-        ImageID
-      });
-      this.showImageSwiper = true;
-    }
+    //    showSwiper(index, Count, List, ImageID){
+    //   this.setCurrent(index);
+    //   this.setImageList({
+    //     Count,
+    //     List,
+    //     ImageID
+    //   });
+    //   this.showImageSwiper = true;
+    // }
     }
 }
 </script>
