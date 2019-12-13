@@ -19,20 +19,22 @@
 import {mapActions, mapState} from 'vuex'
 export default {
      computed: {
-    ...mapState({
-      right:state=> state.home.right
-    })
-  },
-  methods:{
-    detail(SerialID){
-        console.log(SerialID)
-        this.$router.push({
-           path:'/about',
-           query:{SerialID:SerialID}
-      })
-      
-     }
-   }
+        ...mapState({
+            right:state=> state.home.right
+        })
+    },
+    methods:{
+        ...mapActions({
+            getPricelList:'price/getPricelList'
+        }),
+        detail(SerialID){
+                console.log(SerialID)
+                this.$router.push({
+                path:'/about',
+                query:{SerialID:SerialID}
+            })
+        }
+    }
 }
 </script>
 
@@ -65,11 +67,13 @@ export default {
         width: 100%;
         height: .48rem;
         font-size: 14px;
-        padding-left: 15px;
+        padding-left: .5rem;
+        // margin-left: .2rem;
         line-height: .48rem;
         background: #F2F2F2
     }
     img{
         width: 1.8rem;
+        margin-left: .4rem;
     }
 </style>

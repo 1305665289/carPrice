@@ -17,7 +17,7 @@
         </li>
       </ul>
 
-      <van-popup v-model="flage" position="right"  :style="{ height: '100%',width:'70%' }" >
+      <van-popup v-model="flage" position="right" :style="{ height: '100%',width:'70%' }" :overlay-style="{background:'none'}"	> 
         <Rleft class="rl" />
       </van-popup>
 
@@ -51,7 +51,7 @@ export default {
     }),
     rleft(MasterID){
       this.flage=!this.flage
-       this.getMasterRightList(MasterID)
+      this.getMasterRightList(MasterID)
       if(document.querySelector('.lii')){
          document.querySelector('.rl').style='display:block'
       } 
@@ -63,12 +63,12 @@ export default {
   },
   created() {
     this.getMasterBrandList();
-    this.getMasterRightList()
+    this.getMasterRightList();
   }
 }
 </script>
 <style lang="scss" scoped>
-  .hljs-comment{
+  .home{
     width: 100%;
     height: 100%;
     overflow-y: scroll;
@@ -77,15 +77,11 @@ export default {
   .box {
     width: 100%;
   }
-  .van-overlay{
-    background-color:none
-  }
   .ull{
     width: 6.9rem;
     text-align: center;
     background-color:none
   }
- 
   .right{
   position: fixed;
   right: 0px;
@@ -102,9 +98,6 @@ export default {
     display: flex;
     margin-left: 15px;
     border-bottom: 1px solid #ddd;
-    background-color:none
-  }
-  .van-overlay{
     background-color:none
   }
   img{
@@ -125,7 +118,7 @@ export default {
   }
   .rl{
     width:5.6rem ;
-    width: 100%;
+    // width: 100%;
     height: 100%;
     background: white;
     position: fixed;

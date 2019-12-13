@@ -1,5 +1,4 @@
 <template>
-    
      <div class="home">
         <div class="main">
           <div class="image" @click="handleImg(detailLists.SerialID)">
@@ -70,7 +69,8 @@ export default {
   methods: {
     ...mapActions({
       getDetailList: 'detail/getDetailList',
-      getMoCityList: "price/getMoCityList"
+      getMoCityList: "price/getMoCityList",
+      getPricelList: "price/getPricelList"
     }),
     handleImg(SerialID){
       this.$router.push({
@@ -103,6 +103,8 @@ export default {
     this.getDetailList(this.$route.query.SerialID);
     // this.getPricelList()
     this.getMoCityList()
+    console.log(this.$route.query.SerialID)
+    this.getPricelList(this.$route.query.SerialID) //保存ID
   }
 }
 </script>

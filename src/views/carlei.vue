@@ -100,7 +100,7 @@ export default {
   mounted(){
     this.getMoCityList()
     let carId=localStorage.getItem("carId")
-    let {CityID}=this.getMoCityList
+    let {CityID}=this.Molist
     this.getPricelList({carId,CityID:this.CityID?this.CityID:CityID})
   }
 }

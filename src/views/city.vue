@@ -57,9 +57,9 @@ export default {
     handT(){
       this.flage=!this.flage
     },
-    getContainer() {
-      return document.querySelector('.concent');
-    }
+    // getContainer() {
+    //   return document.querySelector('.concent');
+    // }
   },
   created(){ 
     this.getCityList()

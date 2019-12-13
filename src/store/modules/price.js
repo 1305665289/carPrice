@@ -3,13 +3,14 @@ const state = {
     arr:[],
     cityid:[],
     Molist:{},
-    carsID:[]
+    // carsID:[]
 }
 const mutations = {
     setArr(state,payload){
         state.arr=payload
-        state.carsID=state.arr.details.serial.SerialID
-        // console.log(state.arr.list.cityid)
+        console.log(payload)
+        // console.log(state.arr.details.serial)
+        // state.carsID=state.arr.details.serial.SerialID
     },
     MosetArr(state,payload){
         state.Molist=payload
@@ -20,7 +21,7 @@ const actions = {
     async getPricelList({commit}, payload){
         // console.log(...payload)
         let res = await getPricelList(payload);
-        // console.log(res.data)
+        // console.log(res.data,'dfkl;we')
         await commit("setArr",res.data)
     },
     //城市北京
