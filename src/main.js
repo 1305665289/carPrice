@@ -11,7 +11,7 @@ Vue.use(VueLazyload)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: '',
-  loading: 'dist/loading.gif',
+  loading: './assets/loading.jpg',
   attempt: 1
 })
 // 引入Vant

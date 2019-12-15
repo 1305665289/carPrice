@@ -3,7 +3,6 @@
     <transition :name="transitionName">
       <keep-alive>
           <router-view class="transitionBody" :key='key' ></router-view>
-          <!-- <router-view></router-view> -->
       </keep-alive>
     </transition>
   </div>
@@ -27,7 +26,7 @@ export default ({
       const compare = arr.indexOf(to.path)>arr.indexOf(from.path);  
       this.transitionName = compare ? 'transitionLeft' : 'transitionRight';
       } 
-    }  
+    }
 })
 
 </script>

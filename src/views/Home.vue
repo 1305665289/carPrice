@@ -5,6 +5,7 @@
               <ul class="ull">
                 <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
                     <img v-lazy="item.CoverPhoto" alt="">
+                    <!-- <van-loading type="spinner"/> -->
                     <span>{{item.Name}}</span>   
                 </li>
               </ul> 
@@ -17,7 +18,11 @@
         </li>
       </ul>
 
-      <van-popup v-model="flage" position="right" :style="{ height: '100%',width:'70%' }" :overlay-style="{background:'none'}"	> 
+        <van-popup v-model="flage" 
+                 position="right" 
+                 :style="{ height: '100%',width:'70%' }" 
+                 :overlay-style="{background:'none'}"	
+                 > 
         <Rleft class="rl" />
       </van-popup>
 
@@ -57,7 +62,6 @@ export default {
       } 
     },
      fun(item){
-       console.log(document.querySelector('.home').scrollTop,document.querySelector(`#${item}`).offsetTop)
           document.querySelector('.home').scrollTop = document.querySelector(`#${item}`).offsetTop;
       }
   },
@@ -68,6 +72,14 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .rl{
+    width:5.6rem ;
+    height: 100%;
+    background: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
   .home{
     width: 100%;
     height: 100%;
@@ -116,13 +128,8 @@ export default {
     padding-left: .3rem;
     color: #aaa;
   }
-  .rl{
-    width:5.6rem ;
-    // width: 100%;
+  .getContainer{
+    width: 70%;
     height: 100%;
-    background: white;
-    position: fixed;
-    right: 0;
-    top: 0;
   }
 </style>

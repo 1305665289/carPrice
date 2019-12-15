@@ -90,7 +90,6 @@ export default {
     price(id){
       console.log(id)
       let arr=localStorage.setItem('carId',id)
-      // console.log(arr)
       console.log(arr)
       this.$router.push({
         path:'/carlei',
@@ -101,7 +100,6 @@ export default {
   created() {
     // 获取详情页页的数据 拿到首页传递的=》ID
     this.getDetailList(this.$route.query.SerialID);
-    // this.getPricelList()
     this.getMoCityList()
     console.log(this.$route.query.SerialID)
     this.getPricelList(this.$route.query.SerialID) //保存ID

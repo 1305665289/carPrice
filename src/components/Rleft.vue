@@ -1,7 +1,7 @@
 <template>
   <div class="scr">
        <div v-for="(item,index) in right" :key="index" class="right">
-          <p class="tit">{{item.GroupName}}</p> 
+          <p class="tit" @click="handle">{{item.GroupName}}</p> 
            <ul>
                <li v-for="(item,index) in item.GroupList" :key="index" @click="detail(item.SerialID)">
                    <img v-lazy="item.Picture" alt="">
@@ -18,6 +18,11 @@
 <script>
 import {mapActions, mapState} from 'vuex'
 export default {
+    data(){
+        return {
+        flage:false
+        }
+    },
      computed: {
         ...mapState({
             right:state=> state.home.right
@@ -33,6 +38,9 @@ export default {
                 path:'/about',
                 query:{SerialID:SerialID}
             })
+        },
+        handle(){
+            document.querySelector('.src').style='display:none'
         }
     }
 }
