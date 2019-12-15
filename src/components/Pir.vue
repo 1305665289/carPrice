@@ -1,6 +1,7 @@
 <template>
-  <div class="box">
-        <div class="mack" @click="Toscroll(item.Id)">
+  <div>
+      <div class="box">
+        <div class="mack" @click="showbanner(item)">
             <p class="pos">{{item.Name}}</p>
             <p class="abs">{{item.Count}}张</p>
         </div>
@@ -8,31 +9,63 @@
             <span :style="{backgroundImage:'url('+itemimg.Url+')'}"/>
         </li>
   </div>
+   
+  </div>
+  
 </template>
 <script>
-import {mapActions, mapState} from 'vuex'
+import {mapActions, mapState,mapMutations} from 'vuex'
+import Banner from './bannerSwiper.vue';
+// import ImagePreview from "./preview.vue";
 export default {
+    components:{
+         Banner,
+    // ImagePreview
+    },
+    data() {
+        return {
+            showImageList:false
+        }
+    },
   props:['item'],
-  
+computed: {
+        // showImageList: state => state.pic.showBanner
+},
   methods:{
+      ...mapMutations({
+      setshowBanner:"pic/setshowBanner",
+      setImageId:"pic/setImageId"
+    }),
+     showbanner(it){
+      console.log(it.Id)
+      this.showImageList=true
+     this.setshowBanner(this.showImageList)
+     this.setImageId(it.Id)
+    },
       ...mapActions({
           imgList:'pic/imgList'
       }),
-      Toscroll(ImageID){
-          console.log(ImageID)
-          let SerialID=this.$route.query.SerialID
-          this.$router.push({
+       showbanner(it){
+      console.log(it.Id)
+      this.showImageList=true
+     this.setshowBanner(this.showImageList)
+     this.setImageId(it.Id)
+    }
+    //   Toscroll(ImageID){
+    //       console.log(ImageID)
+    //       let SerialID=this.$route.query.SerialID
+    //       this.$router.push({
 
-              path:'/scroll',
-              query:{SerialID}
-          })
+    //           path:'/scroll',
+    //           query:{SerialID}
+    //       })
       
-          console.log(SerialID,'aaaa')
-          let Page=1,
-              PageSize=30
-          this.imgList({SerialID,ImageID,Page,PageSize})
+    //       console.log(SerialID,'aaaa')
+    //       let Page=1,
+    //           PageSize=30
+    //       this.imgList({SerialID,ImageID,Page,PageSize})
 
-      }
+    //   }
 
    }
 }

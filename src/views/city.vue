@@ -9,13 +9,11 @@
          <ul v-for="(item,index) in city" :key="index" @click="handleC(item.CityID)">
              <li>{{item.CityName}}</li>
          </ul>
-     </div>
-
+     </div> 
      <!-- 弹框 -->
     <div class="shi" v-if="flage" @click="handT">
         <CityItem class="concent" :CityID="CityID" :provinceid="provinceid"/>
     </div>
-
   </div>
 </template>
 

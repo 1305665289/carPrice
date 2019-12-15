@@ -1,4 +1,4 @@
-import {getPicList,getImageList,imgList} from '@/services/index'
+import {getPicList,getImageTypeList,imgList} from '@/services/index'
 const state = {
     pic:[],
     colorId:'',
@@ -7,7 +7,10 @@ const state = {
     count: '',  //当前分类图片总数
     page: 1,  //当前分页
     pageSize: 30, //每页数量
-    imgList:[]
+    imgList:[],
+    SerialID: 2593,
+    ImageID: "",
+    showBanner: false//是否显示banner组件
 }
 const mutations = {
     updataPic(state,payload){
@@ -20,8 +23,20 @@ const mutations = {
         })
         console.log(state.pic,"====")
     },
+    setshowBanner(state, payload) {
+
+        if (payload == true) {
+          state.showBanner = payload
+        } else {
+          state.showBanner = false
+        }
+      },
     getCarColor(state,payload){
         state.colorId=payload
+    },
+     // 修改图片分类id
+    setImageId(state, payload){
+        state.ImageID = payload;
     },
     setImageList(state, payload){
         state.count = payload.Count;
@@ -41,6 +56,9 @@ const mutations = {
     setCurrent(state, payload){
         state.current = payload;
     },
+    setSerialId(state, payload) {
+        state.SerialID = payload;
+      },
     Listimg(state,payload){
         state.imgList=payload.map(item=>{
            
@@ -53,7 +71,6 @@ const mutations = {
  }
  
 const actions = {
-    
    async getPicList({commit,state},payload){
        let params={SerialID:payload}
         if(state.colorId){
@@ -61,23 +78,24 @@ const actions = {
         }
         console.log(params)
        let res= await getPicList(params)
-       console.log(res.data,'-----')
+       console.log(res,'-----')
        commit('updataPic',res.data)
    },
-   async getImageList({commit, state}, payload){
+   async getImageTypeList({commit, state}, payload){
     if (payload){
         commit('setPage', payload);
     }
+    console.log(payload)
     let params = {
         SerialID: state.SerialID,
         ImageID: state.ImageID,
         Page: state.page,
         PageSize: state.pageSize
     }
-    let res = await getImageList(params);
+    let res = await getImageTypeList(params);
     console.log('res...', res);
-    let {Count, List} = res.data.data;
-    console.log(res.data.data,'=========')
+    let {Count, List} = res.data;
+    console.log(res.data,'=========')
     commit('setImageList', {Count, List});
   },
   async imgList({commit},payload){

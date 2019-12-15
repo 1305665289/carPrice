@@ -7,24 +7,39 @@
         <main>
             <Pir v-for="(item,index) in pic" :key="index" :item='item'/>
         </main>
+    <Banner v-if="showImageList" :showImageSwiper.sync="showImageSwiper" />
+    <ImagePreview v-if="showImageSwiper" :showImageSwiper.sync="showImageSwiper"/> 
    </div>
 </template>
 
 <script>
-import {mapActions, mapState} from 'vuex'
+import {mapActions, mapState,mapMutations} from 'vuex'
+import Banner from "../components/bannerSwiper";
+import ImagePreview from "../components/preview.vue";
 import Pir from '@/components/Pir.vue'
 export default {
   components:{
-       Pir
+       Pir,
+          Banner,
+         ImagePreview
+  },
+  data() {
+    return {
+       showImageSwiper:false,
+    }
   },
   computed: {
     ...mapState({
-      pic:state=>state.pic.pic
+      pic:state=>state.pic.pic,
+       showImageList: state => state.pic.showBanner
     })
   },
   methods:{
     ...mapActions({
       getPicList:'pic/getPicList',
+    }),
+       ...mapMutations({
+      setSerialId: "pic/setSerialId"
     }),
     toColor(){
         console.log()
@@ -40,6 +55,15 @@ export default {
         })
       }
    },
+    showSwiper(index, Count, List, ImageID){
+      this.setCurrent(index);
+      this.setImageList({
+        Count,
+        List,
+        ImageID
+      });
+      this.showImageSwiper = true;
+    },
    created(){
       this.getPicList(this.$route.query.SerialID)
    }

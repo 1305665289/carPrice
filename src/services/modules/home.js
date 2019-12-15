@@ -45,7 +45,7 @@ export let getCitySList=(provinceid)=>{
 }
 
 //图片分类列表
-export let getImageList=(params)=>{
+export let getImageTypeList=(params)=>{
     return request('/v2-car-getCategoryImageList.html',{params})
 }
 
