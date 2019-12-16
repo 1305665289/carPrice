@@ -2,7 +2,11 @@
   <div class="box" @scroll="handleScroll(e)" ref="boxs">
     <p class="title">可向多个商家咨询最低价，商家及时回复</p>
     <div class="concent">
+<<<<<<< HEAD
       <div class="con1"  v-if="Object.keys(arr).length" @click="tiao(carsID)">
+=======
+      <div class="con1"  v-if="Object.keys(arr).length" @click="tiao()">
+>>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
           <img :src="arr.details.serial.Picture" alt="">
           <ul>
             <li>{{arr.details.serial.AliasName}}</li>
@@ -84,6 +88,7 @@ export default {
        query:{cityname:cityname}
      })
    },
+<<<<<<< HEAD
    tiao(carsID){
      this.$router.push({
        path:'/toKuan',
@@ -95,6 +100,12 @@ export default {
    },
    quxiao(){
      this.flage=!this.flage
+=======
+   tiao(){
+      this.$router.push({
+        path:"/toKuan"
+      })
+>>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
    }
   },
   mounted(){

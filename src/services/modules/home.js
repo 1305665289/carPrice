@@ -43,3 +43,17 @@ export let getColorList = (SerialID)=>{
 export let getCitySList=(provinceid)=>{
     return request('/v1-city-alllist.html',{params:{provinceid}})
 }
+<<<<<<< HEAD
+=======
+
+//图片分类列表
+export let getImageTypeList=(params)=>{
+    return request('/v2-car-getCategoryImageList.html',{params})
+}
+
+export let imgList=(params)=>{
+    let {SerialID,ImageID,Page,PageSize} =params
+    console.log(params)
+    return request(`/v2-car-getCategoryImageList.html?SerialID=${SerialID}&ImageID=${ImageID}&Page=${Page}&PageSize=${PageSize}`)
+}
+>>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db

@@ -4,11 +4,11 @@
            <p>全部颜色</p>
       </header>
       <main>
-            <p class="year">
+            <div class="year">
                  <span v-for="(item,index,key) in list" :key="index" @click="handleC(item,key)" :class="{active: curIndex===key}"> 
-                      {{index}}
+                       {{index}}
                  </span>
-            </p> 
+            </div> 
              <ul>
                   <li v-for="(v,index) in arr" :key="index" @click="clickColor(v.ColorId)">
                      <span :style="{background:v.Value}"></span>
@@ -65,12 +65,19 @@ export default {
     *{
        color: #000
     }
+    html,body{
+       position: relative;
+    }
    .wrap{
       width: 100%;
       height: 100%;
       background: #f4f4f4;
       display: flex;
-      flex-direction: column
+      flex-direction: column;
+      // transform:translateX(100%)
+      // transform:translateX(-100%)
+      // transform:translateY(20px);
+      
    }
    header{
       width: 100%;
@@ -91,12 +98,15 @@ export default {
       overflow: auto;
    }
    .year{
+      height: .76rem;
       padding-left: .2rem;
       font-size: .3rem;
       background: #fff;
       overflow-x: scroll;
+      display: flex;
+      align-items: center;
        span{
-            margin-left: 20px
+            margin-left: 25px;
        }
    }
    ul{
@@ -104,6 +114,7 @@ export default {
       padding: 0 .2rem;
       overflow: hidden;
       background: #fff;
+ 
       li{
          float: left;
          width: 3.45rem;

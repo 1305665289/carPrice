@@ -1,18 +1,46 @@
 <template>
-  <div class="box">
-        <div>
+  <div>
+      <div class="box">
+        <div class="mack" @click="showbanner(item)">
             <p class="pos">{{item.Name}}</p>
             <p class="abs">{{item.Count}}张</p>
         </div>
-         <li v-for="(itemimg,key) in item.List" :key="key">
+        <li v-for="(itemimg,key) in item.List" :key="key">
             <span :style="{backgroundImage:'url('+itemimg.Url+')'}"/>
-         </li>
+        </li>
   </div>
+   
+  </div>
+  
 </template>
-
 <script>
+import {mapActions, mapState,mapMutations} from 'vuex'
+import Banner from './bannerSwiper.vue';
 export default {
-  props:['item']
+    props:['item'],
+    components:{
+         Banner
+    },
+    data() {
+        return {
+            showImageList:false
+        }
+    },
+  methods:{
+      ...mapMutations({
+      setshowBanner:"pic/setshowBanner",
+      setImageId:"pic/setImageId"
+    }),
+     showbanner(it){
+      console.log(it.Id)
+      this.showImageList=true
+     this.setshowBanner(this.showImageList)
+     this.setImageId(it.Id)
+    },
+      ...mapActions({
+          imgList:'pic/imgList'
+      })
+  }
 }
 </script>
 
@@ -40,6 +68,14 @@ export default {
             background-size: cover;
             background-position: center;
         }
+    }
+    .mack{
+        top: 0px;
+        left: 0px;
+        width: 32.8%;
+        height: 123px;
+        position: absolute;
+        background: rgba(0,0,0, .6);
     }
    .pos{
        top: 40px;

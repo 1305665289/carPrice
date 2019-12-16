@@ -6,6 +6,7 @@
      </div>
      <div class="concent">
          <p>省市</p>
+<<<<<<< HEAD
          <van-cell is-link v-for="(item,index) in city" :key="index" @click="showPopup(item.CityID)">
             <li>{{item.CityName}}</li>
          </van-cell>
@@ -15,6 +16,16 @@
       <CityItem class="concent" :CityID="CityID" :provinceid="provinceid"/>
     </van-popup>
 
+=======
+         <ul v-for="(item,index) in city" :key="index" @click="handleC(item.CityID)">
+             <li>{{item.CityName}}</li>
+         </ul>
+     </div> 
+     <!-- 弹框 -->
+    <div class="shi" v-if="flage" @click="handT">
+        <CityItem class="concent" :CityID="CityID" :provinceid="provinceid"/>
+    </div>
+>>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
   </div>
 </template>
 
