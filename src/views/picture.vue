@@ -15,13 +15,13 @@
 <script>
 import {mapActions, mapState,mapMutations} from 'vuex'
 import Banner from "../components/bannerSwiper";
-import ImagePreview from "../components/preview.vue";
+import ImagePreview from "../components/ImagePreview.vue";
 import Pir from '@/components/Pir.vue'
 export default {
   components:{
        Pir,
-          Banner,
-         ImagePreview
+       Banner,
+       ImagePreview
   },
   data() {
     return {
@@ -60,12 +60,14 @@ export default {
       this.setImageList({
         Count,
         List,
-        ImageID
+        ImageID,
+        
       });
       this.showImageSwiper = true;
     },
    created(){
-      this.getPicList(this.$route.query.SerialID)
+      this.getPicList(this.$route.query.SerialID),
+      this.setSerialId(this.$route.query.SerialID)
    }
 }
 </script>

@@ -8,7 +8,7 @@ const state = {
     page: 1,  //当前分页
     pageSize: 30, //每页数量
     imgList:[],
-    SerialID: 2593,
+    SerialID: '',
     ImageID: "",
     showBanner: false//是否显示banner组件
 }
@@ -38,6 +38,9 @@ const mutations = {
     setImageId(state, payload){
         state.ImageID = payload;
     },
+    setSerialId(state, payload) {
+        state.SerialID = payload;
+      },
     setImageList(state, payload){
         state.count = payload.Count;
         payload.ImageID && (state.ImageID = payload.ImageID);
@@ -56,9 +59,7 @@ const mutations = {
     setCurrent(state, payload){
         state.current = payload;
     },
-    setSerialId(state, payload) {
-        state.SerialID = payload;
-      },
+  
     Listimg(state,payload){
         state.imgList=payload.map(item=>{
            
@@ -81,19 +82,23 @@ const actions = {
        console.log(res,'-----')
        commit('updataPic',res.data)
    },
+   
    async getImageTypeList({commit, state}, payload){
+       
     if (payload){
         commit('setPage', payload);
     }
     console.log(payload)
+    
     let params = {
         SerialID: state.SerialID,
         ImageID: state.ImageID,
         Page: state.page,
         PageSize: state.pageSize
     }
+    console.log(params)
     let res = await getImageTypeList(params);
-    console.log('res...', res);
+    console.log('res...', res.data);
     let {Count, List} = res.data;
     console.log(res.data,'=========')
     commit('setImageList', {Count, List});

@@ -16,21 +16,16 @@
 <script>
 import {mapActions, mapState,mapMutations} from 'vuex'
 import Banner from './bannerSwiper.vue';
-// import ImagePreview from "./preview.vue";
 export default {
+    props:['item'],
     components:{
-         Banner,
-    // ImagePreview
+         Banner
     },
     data() {
         return {
             showImageList:false
         }
     },
-  props:['item'],
-computed: {
-        // showImageList: state => state.pic.showBanner
-},
   methods:{
       ...mapMutations({
       setshowBanner:"pic/setshowBanner",
@@ -44,30 +39,8 @@ computed: {
     },
       ...mapActions({
           imgList:'pic/imgList'
-      }),
-       showbanner(it){
-      console.log(it.Id)
-      this.showImageList=true
-     this.setshowBanner(this.showImageList)
-     this.setImageId(it.Id)
-    }
-    //   Toscroll(ImageID){
-    //       console.log(ImageID)
-    //       let SerialID=this.$route.query.SerialID
-    //       this.$router.push({
-
-    //           path:'/scroll',
-    //           query:{SerialID}
-    //       })
-      
-    //       console.log(SerialID,'aaaa')
-    //       let Page=1,
-    //           PageSize=30
-    //       this.imgList({SerialID,ImageID,Page,PageSize})
-
-    //   }
-
-   }
+      })
+  }
 }
 </script>
 
