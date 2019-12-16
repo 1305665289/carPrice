@@ -84,7 +84,7 @@ export default {
             this.isPullUpLoad = false;
         })
         this.scroll.on('pullingDown', async ()=>{
-            await this.refreshDispatch(1);
+            await this.refreshDispatch();
             this.scroll.finishPullDown();
         })
     },

@@ -60,8 +60,7 @@ export default {
       this.setImageList({
         Count,
         List,
-        ImageID,
-        
+        ImageID
       });
       this.showImageSwiper = true;
     },

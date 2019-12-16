@@ -24,7 +24,6 @@ const mutations = {
         console.log(state.pic,"====")
     },
     setshowBanner(state, payload) {
-
         if (payload == true) {
           state.showBanner = payload
         } else {
@@ -59,18 +58,14 @@ const mutations = {
     setCurrent(state, payload){
         state.current = payload;
     },
-  
     Listimg(state,payload){
         state.imgList=payload.map(item=>{
-           
                 item.Url=item.Url.replace('{0}',3)
-    
             return item
         })
         console.log(state.imgList,'111')
     }
  }
- 
 const actions = {
    async getPicList({commit,state},payload){
        let params={SerialID:payload}
@@ -81,15 +76,12 @@ const actions = {
        let res= await getPicList(params)
        console.log(res,'-----')
        commit('updataPic',res.data)
-   },
-   
-   async getImageTypeList({commit, state}, payload){
-       
+   }, 
+   async getImageTypeList({commit, state}, payload){  
     if (payload){
         commit('setPage', payload);
     }
     console.log(payload)
-    
     let params = {
         SerialID: state.SerialID,
         ImageID: state.ImageID,

@@ -6,17 +6,6 @@
      </div>
      <div class="concent">
          <p>省市</p>
-<<<<<<< HEAD
-         <van-cell is-link v-for="(item,index) in city" :key="index" @click="showPopup(item.CityID)">
-            <li>{{item.CityName}}</li>
-         </van-cell>
-         
-     </div>
-    <van-popup v-model="flage" position="right"  :style="{ height: '100%',width:'80%' }" >
-      <CityItem class="concent" :CityID="CityID" :provinceid="provinceid"/>
-    </van-popup>
-
-=======
          <ul v-for="(item,index) in city" :key="index" @click="handleC(item.CityID)">
              <li>{{item.CityName}}</li>
          </ul>
@@ -25,7 +14,6 @@
     <div class="shi" v-if="flage" @click="handT">
         <CityItem class="concent" :CityID="CityID" :provinceid="provinceid"/>
     </div>
->>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
   </div>
 </template>
 
@@ -45,8 +33,7 @@ export default {
   computed: {
     ...mapState({
         city:state=>state.city.city,
-        provinceid:state=>state.city.provinceid,
-        cityNumId:state=>state.city.cityNumId
+        provinceid:state=>state.city.provinceid
     })
   },
   methods:{
@@ -59,7 +46,7 @@ export default {
           path:'/carlei'
       })
     },
-    showPopup(index){
+    handleC(index){
       this.flage=!this.flage
       this.CityID=index
       this.getCitySList(this.CityID)
@@ -67,7 +54,7 @@ export default {
     },
     handT(){
       this.flage=!this.flage
-    },
+    }
   },
   created(){ 
     this.getCityList()
@@ -84,6 +71,21 @@ export default {
     height: 100%;
     overflow: auto;
     position: relative;
+}
+.shi{
+  background: rgba($color: #000000, $alpha: .5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .concent{
+    width: 80%;
+    height: 100%;
+    margin-left: 20%;
+    background: #fff;
+    overflow-y: scroll;
+  }
 }
 .title p:nth-child(1){
     height: .4rem;
@@ -119,4 +121,18 @@ export default {
     margin-left: .1rem;
     position: relative;
 }
+li::after{
+    content: "";
+    display: inline-block;
+    padding-top: .16rem;
+    padding-right: .16rem;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    right: .35rem;
+    top: .3rem;
+}
+
 </style>

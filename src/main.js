@@ -6,38 +6,19 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import VueLazyload from 'vue-lazyload'
-<<<<<<< HEAD
-
-Vue.use(VueLazyload)
+// 引入Vant
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: '',
-  loading: './assets/loading.jpg',
+  error: 'http://h5.chelun.com/2017/official/img/icon-brand.jpg',
+  loading: 'http://h5.chelun.com/2017/official/img/icon-brand.jpg',
   attempt: 1
 })
-// 引入Vant
-=======
-// import stricky from './instruct/stricky'
-// 引入Vant
 
-
-Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  error: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576149505320&di=2bd82aa6bfbfe09a04113eaf69a4cc9a&imgtype=0&src=http%3A%2F%2Fpic72.nipic.com%2Ffile%2F20150714%2F10922672_064831133634_2.jpg',
-  loading: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1576139383&di=9f06e09031c9c3bc290319b4dac479cb&src=http://hbimg.b0.upaiyun.com/67277dbe4fad041d641e207608eb36dd2933fdee8bbd-xqH6vu_fw658',
-  attempt: 1
-})
-import { Swipe, SwipeItem, ImagePreview } from 'vant';
-Vue.use(Swipe).use(SwipeItem);
-Vue.use(ImagePreview);
->>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
 import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
-
 //引入自定义指令
-import stricky from './directions/stricky'
-
+// import stricky from './directions/stricky'
 Vue.prototype.$http=axios 
 Vue.config.productionTip = false
 new Vue({

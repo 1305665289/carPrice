@@ -95,7 +95,7 @@ export default {
      
         },   
         mounted() {
-            this.getImageTypeList(1);
+            this.getImageTypeList();
         },
 }
 </script>
