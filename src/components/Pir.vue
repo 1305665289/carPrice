@@ -9,7 +9,6 @@
             <span :style="{backgroundImage:'url('+itemimg.Url+')'}"/>
         </li>
   </div>
-   
   </div>
   
 </template>
@@ -32,7 +31,6 @@ export default {
       setImageId:"pic/setImageId"
     }),
      showbanner(it){
-      console.log(it.Id)
       this.showImageList=true
      this.setshowBanner(this.showImageList)
      this.setImageId(it.Id)

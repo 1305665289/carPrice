@@ -13,8 +13,6 @@ export default {
     props:['CityID','provinceid'],
     methods:{
         handle(name,CityID){
-            console.log(name)
-            // console.log(cityNumId)
             this.$router.push({
                 path:'/carlei',
                 query:{name,CityID}  

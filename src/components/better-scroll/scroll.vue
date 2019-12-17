@@ -4,7 +4,7 @@
             <div ref="listWrapper">
                 <slot>
                     <ul class="list-content">
-                        <li @click="clickItem($event,item)" class="list-item" v-for="item in data">{{item}}</li>
+                        <li @click="clickItem($event,item)" class="list-item" v-for="item in data" :key="item">{{item}}</li>
                     </ul>
                 </slot>
             </div>
@@ -315,24 +315,16 @@
 .list-wrapper {
   position: relative;
   height: 100%;
-  /* position: absolute */
-  /* left: 0 */
-  /* top: 0 */
-  /* right: 0 */
-  /* bottom: 0 */
   overflow: hidden;
   background: #fff;
-
   .scroll-content {
     position: relative;
     z-index: 1;
   }
-
   .list-content {
     position: relative;
     z-index: 10;
     background: #fff;
-
     .list-item {
       height: 60px;
       line-height: 60px;
@@ -351,7 +343,6 @@
   justify-content: center;
   align-items: center;
   transition: all;
-
   .after-trigger {
     margin-top: 10px;
   }

@@ -46,20 +46,16 @@ export default ({
 html{
   font-size: calc(100vw/750*100);
 }
-<<<<<<< HEAD
-=======
-// @function pxTorem($font) {
-//     @return $font * 2
-// };
->>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
+
 body{
   font-size:.32rem;
+  -webkit-overflow-scrolling: touch;
 }
+
 .transitionBody{
  transition: all .3s ease; /*定义动画的时间和过渡效果*/
 }
  
-
 .transitionRight-leave-active {
   -webkit-transform: translate(100%, 0);
   transform: translate(-100%, 0); 

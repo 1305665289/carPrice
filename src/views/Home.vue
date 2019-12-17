@@ -1,24 +1,19 @@
 <template>
   <div class="home">
-<<<<<<< HEAD
       <div v-for="(item,index) in lis" :key="index" :id="item.letter" class="box" >
           <p class="tit">{{item.letter}}</p>
               <ul class="ull">
                 <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
                     <img v-lazy="item.CoverPhoto" alt="">
-                    <!-- <van-loading type="spinner"/> -->
                     <span>{{item.Name}}</span>   
                 </li>
               </ul> 
       </div>
       <ul class="right">
         <li v-for="(item,index) in lis" :key="index" >
-            <p @click='fun(item.letter)'>
-              {{item.letter}}
-            </p> 
+            <p @click='fun(item.letter)'>{{item.letter}}</p> 
         </li>
       </ul>
-
         <van-popup v-model="flage" 
                  position="right" 
                  :style="{ height: '100%',width:'70%' }" 
@@ -26,29 +21,6 @@
                  > 
         <Rleft class="rl" />
       </van-popup>
-
-=======
-          <div v-for="(item,index) in lis" :key="index" :id="item.letter" class="box" >
-             <p class="tit">{{item.letter}}</p>
-                 <ul class="ull">
-                   <li v-for="(item,index) in item.arr" :key="index" class="lii" @click="rleft(item.MasterID)">
-                        <img v-lazy="item.CoverPhoto" alt="">
-                        <span>{{item.Name}}</span>   
-                   </li>
-                 </ul> 
-          </div>
-          <ul class="right">
-            <li v-for="(item,index) in lis" :key="index" >
-               <p @click='fun(item.letter)'>
-                 {{item.letter}}
-               </p> 
-            </li>
-          </ul>
-      <Rleft class="rl" />
-      <!-- <van-popup v-model="flage" position="right"  :style="{ height: '100%',width:'70%' }" >
-        <Rleft class="rl" />
-      <van-popup> -->
->>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
   </div>
 </template>
 <script>
@@ -120,10 +92,10 @@ export default {
   .right{
   position: fixed;
   right: 0px;
-  top: 120px;
+  top: 2.4rem;
   p{
-    line-height: 20px;
-    font-size: 12px;
+    line-height: .4rem;
+    font-size: .24rem;
     color: #666666;
   }
  }
@@ -150,9 +122,5 @@ export default {
     background: #f4f4f4;
     padding-left: .3rem;
     color: #aaa;
-  }
-  .getContainer{
-    width: 70%;
-    height: 100%;
   }
 </style>

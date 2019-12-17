@@ -44,10 +44,6 @@ export default {
         }
     },
     methods: {
-        // ...mapActions({
-        //     refreshDispatch: this.list.refreshDispatch,
-        //     loadMoreDispatch: this.list.loadMoreDispatch
-        // }),
         refreshDispatch(page){
             this.$store.dispatch(this.list.refreshDispatch, page)
         },
@@ -59,7 +55,6 @@ export default {
         this.scroll = new BScroll('.container',{
             scrollY: true,
             click: true,
-            // probeType: 1,
             pullUpLoad: {
                 threshold: 50
             },
@@ -71,13 +66,9 @@ export default {
 
         this.scroll.on('pullingUp', async ()=>{
             // 判断是否加载完全部数据
-            if (this.list.count == this.list.value.length){
-                return;
-            }
+            if (this.list.count == this.list.value.length){ return }
 
-            if (this.isPullUpLoad){
-                return;
-            }
+            if (this.isPullUpLoad){ return;}
             this.isPullUpLoad = true;
             await this.loadMoreDispatch(this.list.query.page+1);
             this.scroll.finishPullUp();
@@ -95,7 +86,6 @@ export default {
     .container{
         width: 100%;
         height: 100%;
-        // overflow-y: scroll;
         position: relative;
     }
     .top-tip{

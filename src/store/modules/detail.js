@@ -33,10 +33,7 @@ function formatCarList(list){
         item.key = `${item.exhaust_str}/${item.max_power_str} ${item.inhale_type}`;
         return item;
     })
-    // let newList = [{
-    //     key: '',
-    //     list: []
-    // }];
+    // let newList = [{key: '', list: [] }];
     let newList = [];
     
     // 遍历，根据key把数据聚合一下
@@ -61,7 +58,6 @@ const mutations = {
         //获取年份
         let year=state.detailLists.list.map(item=>item.market_attribute.year);
         state.detailYear=Array.from(new Set(year));
-        // console.log(state.detailYear)
         
         //获取当前选择的年份
         let allYearList=[];
@@ -73,33 +69,27 @@ const mutations = {
 
         //对当前年份的数据进行排序
         allYearList = sortCarList(allYearList);
-        // console.log(allYearList)
 
         // 聚合key相同的车款数据
         allYearList = formatCarList(allYearList);
         state.allYearList = allYearList;
-        // console.log('allYearList...', allYearList);
         
         state.allYearList.map(item=>{
             return state.everyList=item.list
         })
-        console.log(state.allYearList)
     },
     detailMoList(state,payload){
         state.Molist=payload
-        console.log(state.Molist)
     }
 }
 
 const actions = {
     async getDetailList({commit}, payload){
-        console.log(payload)
         let res = await getDetailList(payload);
         commit('detailList', res);
     },
     async getPricelList({commit}){
         let res = await getPricelList();
-        console.log(res.data)
         await commit("detailMoList",res.data)
     } 
 }

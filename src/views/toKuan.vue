@@ -5,9 +5,7 @@
       </header>
        <main>
             <p class="year">
-                 <span v-for="(item,index) in listdata" :key="index"> 
-                       {{item}}
-                 </span>
+                 <span v-for="(item,index) in listdata" :key="index">{{item}}</span>
             </p> 
             <div class="conOl" v-for="(item,index) in allYearList" :key="index">
                   <p class="tip">{{item.key}}</p>

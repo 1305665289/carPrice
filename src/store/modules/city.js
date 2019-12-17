@@ -7,11 +7,9 @@ const state = {
 const mutations = {
     setArr(state,payload){
         state.city=payload
-        // console.log(state.city)
     },
     setsArr(state,payload){
         state.provinceid=payload
-        console.log(state.provinceid)
     }
  }
  
@@ -23,7 +21,6 @@ const actions = {
 
     async getCitySList({commit},payload){
         let res = await getCitySList(payload);
-        // console.log(res.data)
         await commit("setsArr",res.data)
     }
 }

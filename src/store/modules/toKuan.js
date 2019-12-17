@@ -10,7 +10,6 @@ const mutations = {
 const actions = {
    async getDetailList({commit},payload){
        let res= await getDetailList(payload)
-       console.log(res)
        commit('updataKuan',res.data)
    }
 }

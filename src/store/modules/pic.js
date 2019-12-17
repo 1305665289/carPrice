@@ -21,10 +21,9 @@ const mutations = {
             })
             return item
         })
-        console.log(state.pic,"====")
+
     },
     setshowBanner(state, payload) {
-
         if (payload == true) {
           state.showBanner = payload
         } else {
@@ -59,7 +58,6 @@ const mutations = {
     setCurrent(state, payload){
         state.current = payload;
     },
-  
     Listimg(state,payload){
         state.imgList=payload.map(item=>{
            
@@ -67,7 +65,6 @@ const mutations = {
     
             return item
         })
-        console.log(state.imgList,'111')
     }
  }
  
@@ -77,36 +74,26 @@ const actions = {
         if(state.colorId){
             params.ColorID=state.colorId
         }
-        console.log(params)
        let res= await getPicList(params)
-       console.log(res,'-----')
        commit('updataPic',res.data)
    },
    
    async getImageTypeList({commit, state}, payload){
-       
     if (payload){
         commit('setPage', payload);
     }
-    console.log(payload)
-    
     let params = {
         SerialID: state.SerialID,
         ImageID: state.ImageID,
         Page: state.page,
         PageSize: state.pageSize
     }
-    console.log(params)
     let res = await getImageTypeList(params);
-    console.log('res...', res.data);
     let {Count, List} = res.data;
-    console.log(res.data,'=========')
     commit('setImageList', {Count, List});
   },
   async imgList({commit},payload){
-      console.log(payload)
       let res= await imgList(payload)
-      console.log(res)
      commit('Listimg',res.data.List)
   }
 }

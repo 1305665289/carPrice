@@ -89,7 +89,6 @@ export default {
             },
             showSwiper(index){
                this.$emit("update:showImageSwiper", true)
-            console.log(index)
                 this.setCurrent(index);
             }
      

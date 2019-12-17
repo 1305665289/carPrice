@@ -15,7 +15,6 @@
           </div>
 
           <div class="bottom">
-
               <!-- 全部年份 -->
               <ol class="titleOl" > 
                 <li class="active" ref="actives" @click="handleQ">{{allYear}}</li>
@@ -70,13 +69,7 @@ export default {
     ...mapActions({
       getDetailList: 'detail/getDetailList',
       getMoCityList: "price/getMoCityList",
-<<<<<<< HEAD
       getPricelList: "price/getPricelList"
-=======
-
-      // getImageList: "imageList/getImageList"
-
->>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
     }),
     handleImg(SerialID){
       this.$router.push({

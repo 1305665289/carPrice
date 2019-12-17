@@ -33,7 +33,6 @@ export default {
             getPricelList:'price/getPricelList'
         }),
         detail(SerialID){
-                console.log(SerialID)
                 this.$router.push({
                 path:'/about',
                 query:{SerialID:SerialID}
@@ -70,13 +69,11 @@ export default {
         font-size: .28rem;
         color: red;
     }
-  
     .tit{
         width: 100%;
         height: .48rem;
         font-size: 14px;
         padding-left: .5rem;
-        // margin-left: .2rem;
         line-height: .48rem;
         background: #F2F2F2
     }

@@ -45,7 +45,6 @@ export default {
             this.curIndex=key
             this.lyp(item)
         },
-          
         clickColor(colorId){
            let SerialID=this.$route.query.SerialID
             this.getCarColor(colorId);
@@ -73,11 +72,7 @@ export default {
       height: 100%;
       background: #f4f4f4;
       display: flex;
-      flex-direction: column;
-      // transform:translateX(100%)
-      // transform:translateX(-100%)
-      // transform:translateY(20px);
-      
+      flex-direction: column;  
    }
    header{
       width: 100%;
@@ -114,7 +109,6 @@ export default {
       padding: 0 .2rem;
       overflow: hidden;
       background: #fff;
- 
       li{
          float: left;
          width: 3.45rem;

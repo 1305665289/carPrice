@@ -17,7 +17,6 @@ const mutations = {
 const actions = {
    async getColorList({commit},payload){
        let res= await getColorList(payload)
-       console.log(res)
        commit('updataColor',res.data)
 
    }

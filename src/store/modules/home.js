@@ -27,7 +27,6 @@ const actions = {
     }, 
     async getMasterRightList({commit},payload){
         let res = await getMasterRightList(payload)
-        // console.log('1````````',res)
           commit('updateRight', res.data)
     }
 }

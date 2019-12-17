@@ -22,7 +22,6 @@ export default {
     arr: function(){
       this.$nextTick(()=>{
         this.offsetTop = (window.innerHeight - this.$refs.container.offsetHeight)/2;
-        console.log('offsetTop...', this.offsetTop)
       })
     }
   },
@@ -33,7 +32,6 @@ export default {
     touchStart(e){
       let y = e.touches[0].pageY - this.offsetTop;
       let index = Math.floor(y/18);
-      console.log('start...', e.touches[0], this.arr[index]);
     },
     touchMove(e){
       let y = e.touches[0].pageY - this.offsetTop;
@@ -41,7 +39,6 @@ export default {
       // 处理边界
       index<1?index=1:index>this.arr.length-1?index=this.arr.length-1:null;
       this.$emit('Parent_jump', this.arr[index]);
-      console.log('start...', this.arr[index]);
     },
     touchEnd(e){
      

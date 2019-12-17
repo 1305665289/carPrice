@@ -6,20 +6,9 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import VueLazyload from 'vue-lazyload'
-<<<<<<< HEAD
-
-Vue.use(VueLazyload)
-Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  error: '',
-  loading: './assets/loading.jpg',
-  attempt: 1
-})
-// 引入Vant
-=======
-// import stricky from './instruct/stricky'
-// 引入Vant
-
+import Vant from 'vant'
+import 'vant/lib/index.css';
+Vue.use(Vant)
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
@@ -27,16 +16,6 @@ Vue.use(VueLazyload, {
   loading: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1576139383&di=9f06e09031c9c3bc290319b4dac479cb&src=http://hbimg.b0.upaiyun.com/67277dbe4fad041d641e207608eb36dd2933fdee8bbd-xqH6vu_fw658',
   attempt: 1
 })
-import { Swipe, SwipeItem, ImagePreview } from 'vant';
-Vue.use(Swipe).use(SwipeItem);
-Vue.use(ImagePreview);
->>>>>>> 0d10c5f1d31f102d7fb7355155eb059e000c29db
-import Vant from 'vant';
-import 'vant/lib/index.css';
-Vue.use(Vant);
-
-//引入自定义指令
-import stricky from './directions/stricky'
 
 Vue.prototype.$http=axios 
 Vue.config.productionTip = false

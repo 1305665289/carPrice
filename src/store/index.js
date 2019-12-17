@@ -11,7 +11,6 @@ import toKuan from './modules/toKuan'
 import price from './modules/price'
 import city from './modules/city'
 
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
